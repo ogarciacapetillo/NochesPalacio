@@ -1,0 +1,17 @@
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.pdb
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\PerformanceLibrary.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\NPOI.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Newtonsoft.Json.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\PerformanceLibrary.pdb
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\PerformanceLibrary.dll.config
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\NPOI.xml
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Newtonsoft.Json.xml
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.csprojResolveAssemblyReference.cache
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.csproj.CoreCompileInputs.cache
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.pdb
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.dll.CodeAnalysisLog.xml
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.dll.lastcodeanalysissucceeded
