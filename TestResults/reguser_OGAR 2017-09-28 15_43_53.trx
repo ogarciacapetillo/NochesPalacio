@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="46882648-38ae-45fb-94f7-d16e7f7e2962" name="reguser@OGAR 2017-09-28 15:43:53" runUser="OGAR\reguser" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bec49d4d-fc80-4f98-94f0-afd3c8c3eb7a">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="reguser_OGAR 2017-09-28 15_43_53">
+      <DeploymentItem filename="D:\Development\Palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.dll" />
+      <DeploymentItem filename="D:\Development\Palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 9.0" MaxConnections="6">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties>
+      <Property name="TestSettingsUIType" value="LoadTest" />
+    </Properties>
+  </TestSettings>
+  <Times creation="2017-09-28T15:43:53.1017988-05:00" queuing="2017-09-28T15:43:53.8428003-05:00" start="2017-09-28T15:43:53.8938001-05:00" finish="2017-09-28T15:43:54.2688008-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="1" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <CodedWebTest name="LoadTestData" storage="d:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="e0719918-56b6-66f0-c63e-407a952e0b2f">
+      <DeploymentItems>
+        <DeploymentItem filename=".\Resources" />
+      </DeploymentItems>
+      <Execution id="497adc37-1ec0-4f0c-82d5-6322694db77d" />
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Shared" class="LoadTestData" />
+    </CodedWebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="e0719918-56b6-66f0-c63e-407a952e0b2f" executionId="497adc37-1ec0-4f0c-82d5-6322694db77d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <WebTestResult executionId="497adc37-1ec0-4f0c-82d5-6322694db77d" testId="e0719918-56b6-66f0-c63e-407a952e0b2f" testName="LoadTestData" computerName="OGAR" duration="00:00:00.0362226" startTime="2017-09-28T15:43:53.9908007-05:00" endTime="2017-09-28T15:43:54.1957998-05:00" testType="37e36796-fb51-4610-8d5c-e00ceaa68b9f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="497adc37-1ec0-4f0c-82d5-6322694db77d">
+      <Output>
+        <ErrorInfo>
+          <Message>Exception occurred: Could not find a part of the path 'D:\Development\Palacio\NochesPalacio\Log\NochesPalacioLog.txt'.</Message>
+          <StackTrace>   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path)
+   at LoggerFramework.FileLogger.Log(String message) in D:\Development\Palacio\NochesPalacio\LoggerFramework\FileLogger.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object , String )
+   at LoggerFramework.Shared.LogHelper.Log(LogTarget target, String message) in D:\Development\Palacio\NochesPalacio\LoggerFramework\Shared\LogHelper.cs:line 25
+   at WebAndLoadTestProject.TestCases.Shared.LoadTestData.LoadDataFromExcel() in D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\TestCases\Shared\LoadTestData.cs:line 48
+   at WebAndLoadTestProject.TestCases.Shared.LoadTestData.&lt;GetRequestEnumerator&gt;d__7.MoveNext() in D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\TestCases\Shared\LoadTestData.cs:line 68
+   at Microsoft.VisualStudio.TestTools.WebStress.WebTestCaseVariation.ExecuteNextTopLevelRequest()</StackTrace>
+        </ErrorInfo>
+      </Output>
+      <ResultFiles>
+        <ResultFile path="LoadTestData.webtestResult" />
+      </ResultFiles>
+      <TestSettings name="Local" id="bec49d4d-fc80-4f98-94f0-afd3c8c3eb7a">
+        <Description>These are default test settings for a local test run.</Description>
+        <Deployment runDeploymentRoot="reguser_OGAR 2017-09-28 15_43_53">
+          <DeploymentItem filename="D:\Development\Palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.dll" />
+          <DeploymentItem filename="D:\Development\Palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll" />
+        </Deployment>
+        <Execution>
+          <TestTypeSpecific>
+            <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+              <Browser name="Internet Explorer 9.0" MaxConnections="6">
+                <Headers>
+                  <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+                  <Header name="Accept" value="*/*" />
+                  <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+                  <Header name="Accept-Encoding" value="GZIP" />
+                </Headers>
+              </Browser>
+            </WebTestRunConfiguration>
+          </TestTypeSpecific>
+          <AgentRule name="Execution Agents">
+          </AgentRule>
+        </Execution>
+        <Properties>
+          <Property name="TestSettingsUIType" value="LoadTest" />
+        </Properties>
+      </TestSettings>
+      <WebTestResultFilePath>reguser_OGAR 2017-09-28 15_43_53\In\497adc37-1ec0-4f0c-82d5-6322694db77d\LoadTestData.webtestResult</WebTestResultFilePath>
+    </WebTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,1 @@
+Exception during loading data from Excel workbook: Exception of type 'System.Exception' was thrown.

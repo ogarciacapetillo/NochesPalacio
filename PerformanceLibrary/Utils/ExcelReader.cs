@@ -1,137 +1,148 @@
-﻿using NPOI.HSSF.UserModel;
+﻿using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using PerformanceLibrary.Core;
-using System.Linq;
 using System.IO;
-using NPOI.Util;
-using System.Collections.Concurrent;
-namespace UtilsLibrary.Tools
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PerformanceLibrary.Utils
 {
     public class ExcelReader
     {
-        private HSSFWorkbook hssfWorkbook = null;
-        private Boolean allSheetsDone = false;
-        private List<String> sheetNames = new List<string>();
+        private XSSFWorkbook xssfWorkbook = new XSSFWorkbook();
+        private bool allSheetsProcessed = false;
+        private List<string> lSheets = new List<string>();
 
-        private Dictionary<string, Dictionary<string, Dictionary<string, string>>> allSheetsMap = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
-        private OrderedDictionary orderedDictionary = new OrderedDictionary();
+        /// <summary>
+        /// Dictionary to represent the Excel workbook
+        /// 1st level Book , sheetNames
+        /// 2nd level SheetName, Sheet
+        /// 3rd level Key, Value
+        /// </summary>
+        private Dictionary<string, Dictionary<string, Dictionary<string, string>>> sheetsDictionary = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
 
-        public List<String> getSheetNames()
+        public Dictionary<string, Dictionary<string, Dictionary<string, string>>> SheetsDictionary { get => sheetsDictionary; }
+        public List<string> GetSheetNames { get => lSheets; set => lSheets = value; }
+
+        public ExcelReader(String fileName)
         {
-            return sheetNames;
-        }
-
-        public ExcelReader(string fileName)
-        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             try
             {
-                
-                string sPath = Base.GetExecPath();               
-                fileName = sPath + fileName;
-                FileStream fs = new FileStream(fileName, FileMode.Open);
-                hssfWorkbook = new HSSFWorkbook(fs);
-                int numberOfSheets = hssfWorkbook.NumberOfSheets;
-                for (int i = 0; i < numberOfSheets; i++)
+                using (FileStream fs = File.OpenRead(filePath))
                 {
-                    sheetNames.Add(hssfWorkbook.GetSheetName(i));
+                    xssfWorkbook = new XSSFWorkbook(fs);
+                    int nos = xssfWorkbook.NumberOfSheets;
+                    for (int x = 0; x < nos; x++)
+                    {
+                        lSheets.Add(xssfWorkbook.GetSheetName(x));
+                    }
                 }
+                // Converts all sheets
+                ConvertAllSheetsToDictionary();
+                Dictionary<string, Dictionary<string, Dictionary<string, string>>> sheetsDictionary = SheetsDictionary;
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Error when trying to open the Data source file: {0}",fileName);
-                Console.WriteLine(ex.Message);
+                throw new Exception();
             }
         }
 
-        private Dictionary<string, Dictionary<string, Dictionary<string, string>>> convertAllSheetsToMap()
+        private Dictionary<string, Dictionary<string, Dictionary<string, string>>> ConvertAllSheetsToDictionary()
         {
-
-            if (allSheetsDone)
+            if (allSheetsProcessed)
             {
-                return allSheetsMap;
+                return sheetsDictionary;
             }
             else
             {
-                foreach (string sheetName in sheetNames)
+                foreach (var sheet in lSheets)
                 {
-                    if (allSheetsMap.ContainsKey(sheetName))
+                    if (sheetsDictionary.ContainsKey(sheet))
                     {
                         continue;
                     }
-                    allSheetsMap.Add(sheetName, (convertSheetToMap((HSSFSheet)hssfWorkbook.GetSheet(sheetName))));
+                    sheetsDictionary.Add(sheet, ConvertSheet((XSSFSheet)xssfWorkbook.GetSheet(sheet)));
                 }
-                allSheetsDone = true;
+                allSheetsProcessed = true;
             }
-            return allSheetsMap;
+            return sheetsDictionary;
         }
 
-        private Dictionary<string, Dictionary<string, string>> convertSheetToMap(HSSFSheet sheet)
-        {
-            Dictionary<string, Dictionary<string, string>> sheetMap = new Dictionary<string, Dictionary<string, string>>();
-
-            int rows = sheet.LastRowNum;
-            int cols = sheet.GetRow(0).LastCellNum;
-
-            HSSFRow headerRow = (HSSFRow)sheet.GetRow(0);
-            List<string> headerRowNames = new List<string>();
-
-            for (int i = 0; i < cols; i++)
-            {
-                headerRowNames.Add(headerRow.GetCell(i).StringCellValue);
-            }
-
-            for (int i = 1; i <= rows; i++)
-            {
-                Dictionary<string, string> rowMap = new Dictionary<string, string>();
-                HSSFRow dataRow = (HSSFRow)sheet.GetRow(i);
-                string key = dataRow.GetCell(0).StringCellValue;
-                if (key == null || key.Trim().Length == 0)
-                {
-                    continue;
-                }
-
-                for (int j = 0; j < cols; j++)
-                {
-                    HSSFCell cell = (HSSFCell)dataRow.GetCell(j);
-                    if (cell != null)
-                    {
-                        rowMap.Add(headerRowNames.ElementAt(j), cell.ToString());
-                    }
-                    else
-                    {
-                        rowMap.Add(headerRowNames.ElementAt(j), null);
-                    }
-
-                }
-                sheetMap.Add(key, rowMap);
-            }
-            return sheetMap;
-        }
-
-        public Dictionary<string, Dictionary<string, string>> getSheetAsMap(string sheetName)
+        public Dictionary<string, Dictionary<string, string>> GetSheetAsDictionary(string sheetName)
         {
             try
             {
-                if (!sheetNames.Contains(sheetName))
+                if (!lSheets.Contains(sheetName))
                 {
-
-                    throw new RuntimeException(sheetName + " not found");
+                    throw new ExecutionEngineException(sheetName + " not found");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine("Exception: " + e.Message);
+                return null;
+            }
+            Dictionary<string, Dictionary<string, string>> sheetDictionary = sheetsDictionary[sheetName];
+            if (sheetDictionary == null)
+            {
+                sheetDictionary = ConvertSheet((XSSFSheet)xssfWorkbook.GetSheet(sheetName));
+            }
+            return sheetDictionary;
+        }
+
+        private Dictionary<string, Dictionary<string, string>> ConvertSheet(XSSFSheet xSheet)
+        {
+            Dictionary<string, Dictionary<string, string>> sheetDictionary = new Dictionary<string, Dictionary<string, string>>();
+
+            int rows = xSheet.PhysicalNumberOfRows;
+            int cols = xSheet.GetRow(0).LastCellNum;
+
+            XSSFRow headerRow = (XSSFRow)xSheet.GetRow(0);
+            List<string> headerRowName = new List<string>();
+
+            for (int x = 0; x < cols; x++)
+            {
+                headerRowName.Add(headerRow.GetCell(x).StringCellValue);
             }
 
-            Dictionary<string, Dictionary<string, string>> sheetMap = null;
+            for (int i = 1; i < rows; i++)
             {
-                sheetMap = convertSheetToMap((HSSFSheet)hssfWorkbook.GetSheet(sheetName));
-                allSheetsMap.Add(sheetName, sheetMap);
-            }
+                Dictionary<String, String> rowMap = new Dictionary<string, string>();
+                try
+                {
+                    XSSFRow dataRow = (XSSFRow)xSheet.GetRow(i);
+                    String key = dataRow.GetCell(0).StringCellValue;
+                    if (key == null || key.Trim().Length == 0)
+                    {
+                        continue;
+                    }
+                    //System.out.println("TestCase = " + key);
+                    for (int j = 0; j < cols; j++)
+                    {
+                        XSSFCell cell = (XSSFCell)dataRow.GetCell(j);
+                        if (cell != null)
+                        {
+                            rowMap.Add(headerRowName[j], cell.ToString());
+                        }
+                        else
+                        {
+                            rowMap.Add(headerRowName[j], null);
+                        }
 
-            return sheetMap;
+                    }
+                    // Verify that item key does not exist
+                    if (!sheetDictionary.ContainsKey(key))
+                    {
+                        sheetDictionary.Add(key, rowMap);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace, ex.Message);
+                }
+            }
+            return sheetDictionary;
         }
     }
 }
