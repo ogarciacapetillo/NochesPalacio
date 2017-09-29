@@ -71,13 +71,14 @@
     <Compile Include="RequestPlugin\Authentication.cs" />
     <Compile Include="Resources\Properties.Designer.cs" />
     <Compile Include="Utils\ExcelFetchData.cs" />
-    <Compile Include="Utils\HTTPResponseCode.cs" />
+    <Compile Include="ValidationRules\HTTPResponseCode.cs" />
     <Compile Include="Utils\JsonDeserializer.cs" />
     <Compile Include="Utils\JsonHandler.cs" />
     <Compile Include="Utils\JsonRegex.cs" />
     <Compile Include="Utils\PropertyHelper.cs" />
     <Compile Include="Utils\PropertyLoader.cs" />
     <Compile Include="Utils\ExcelReader.cs" />
+    <Compile Include="ValidationRules\Assert.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -85,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="ValidationRules\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Properties.resx" />

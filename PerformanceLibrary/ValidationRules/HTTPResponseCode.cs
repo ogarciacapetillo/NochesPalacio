@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PerformanceLibrary.Utils
+namespace PerformanceLibrary.ValidationRules
 {
     public class HTTPResponseCode : ValidationRule
     {

@@ -48,7 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCases\PagoTarjeta.cs" />
+    <Compile Include="TestCases\MovimientosTarjeta.cs" />
     <Compile Include="TestCases\GenerateGAMToken.cs" />
+    <Compile Include="TestCases\ConsutlarBalance.cs" />
+    <Compile Include="TestCases\Login.cs" />
     <Compile Include="TestCases\Shared\LoadTestData.cs" />
     <Compile Include="TestCases\TestTemplate.cs" />
   </ItemGroup>

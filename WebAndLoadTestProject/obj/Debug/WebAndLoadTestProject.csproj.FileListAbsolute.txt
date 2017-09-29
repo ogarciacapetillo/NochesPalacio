@@ -13,8 +13,6 @@ C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadT
 C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.csproj.CoreCompileInputs.cache
 C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.dll
 C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.pdb
-C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.dll.CodeAnalysisLog.xml
-C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.dll.lastcodeanalysissucceeded
 D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.dll
 D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\WebAndLoadTestProject.pdb
 D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
@@ -36,3 +34,9 @@ D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\NPOI.OpenXm
 D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Resources\TestData.xlsx
 D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\LoggerFramework.dll
 D:\Development\Palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\LoggerFramework.pdb
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Resources\TestData.xlsx
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\LoggerFramework.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\NPOI.OOXML.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\LoggerFramework.pdb
