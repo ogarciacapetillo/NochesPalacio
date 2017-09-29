@@ -37,5 +37,3 @@ D:\Development\Palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLib
 D:\Development\Palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csproj.CoreCompileInputs.cache
 D:\Development\Palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.dll
 D:\Development\Palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.pdb
-D:\Development\Palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll.CodeAnalysisLog.xml
-D:\Development\Palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll.lastcodeanalysissucceeded

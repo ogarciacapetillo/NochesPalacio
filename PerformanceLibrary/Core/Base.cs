@@ -10,8 +10,16 @@ namespace PerformanceLibrary.Core
 {
     public class Base
     {
-        #region Private Variables
+        #region Private Fields
         private static PropertyLoader propertyLoader = new PropertyLoader();
+
+        private static List<string> accessToken = new List<string>();
+
+        #endregion
+
+        #region Properties
+        public static List<string> AccessToken { get => accessToken; set => accessToken = value; }
+
         #endregion
 
         #region Public methods

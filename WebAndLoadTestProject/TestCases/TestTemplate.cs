@@ -49,6 +49,12 @@ namespace WebAndLoadTestProject
             }
             #endregion
 
+            this.BeginTransaction("PH_NochesPalacio_GenerateGAM");
+            WebTestRequest createEstimateAjaxReq = new WebTestRequest(this.Context["NetEnvironment"].ToString() + "estimating/api/Actions/SFDCCreateEstimate/");
+
+            yield return createEstimateAjaxReq;
+            createEstimateAjaxReq = null;
+            this.EndTransaction("PH_NochesPalacio_GenerateGAM");
             yield break;
         }
     }
