@@ -35,3 +35,4 @@ C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLib
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csproj.CoreCompileInputs.cache
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.pdb
+C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csprojResolveAssemblyReference.cache

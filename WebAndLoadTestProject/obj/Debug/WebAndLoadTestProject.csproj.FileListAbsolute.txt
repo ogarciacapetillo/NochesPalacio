@@ -46,3 +46,8 @@ C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadT
 C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.dll
 C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.pdb
 C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\TestScenarios\Baseline.loadtest
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Book1.csv
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Resources\Login.csv
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Resources\Movimientos.csv
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Resources\Pagos.csv
+C:\Development\palacio\NochesPalacio\WebAndLoadTestProject\bin\Debug\Resources\Saldos.csv

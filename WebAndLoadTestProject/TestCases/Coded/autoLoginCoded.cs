@@ -19,6 +19,16 @@ namespace WebAndLoadTestProject.TestCases.Coded
     using PerformanceLibrary.ValidationRules;
     using PerformanceLibrary.Core;
 
+    [DeploymentItem("webandloadtestproject\\Resources\\Login.csv")]
+    [DataSource("Login", "Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\Resources\\Login.csv", Microsoft.VisualStudio.TestTools.WebTesting.DataBindingAccessMethod.Sequential, Microsoft.VisualStudio.TestTools.WebTesting.DataBindingSelectColumns.SelectOnlyBoundColumns, "Login#csv")]
+    [DataBinding("Login", "Login#csv", "email", "Login.Login#csv.email")]
+    [DataBinding("Login", "Login#csv", "phone", "Login.Login#csv.phone")]
+    [DataBinding("Login", "Login#csv", "password", "Login.Login#csv.password")]
+    [DataBinding("Login", "Login#csv", "userguid", "Login.Login#csv.userguid")]
+    [DataBinding("Login", "Login#csv", "deviceid", "Login.Login#csv.deviceid")]
+    [DataBinding("Login", "Login#csv", "devicetype", "Login.Login#csv.devicetype")]
+    [DataBinding("Login", "Login#csv", "deviceosname", "Login.Login#csv.deviceosname")]
+    [DataBinding("Login", "Login#csv", "deviceosversion", "Login.Login#csv.deviceosversion")]
     [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken", "webandloadtestproject.dll")]
     public class autoLoginCoded : WebTest
     {
@@ -33,6 +43,7 @@ namespace WebAndLoadTestProject.TestCases.Coded
 
         public override IEnumerator<WebTestRequest> GetRequestEnumerator()
         {
+            string access_token = "";
             //Environment definition
             this.Context["NetEnvironment"] = propertyLoader.GetPropertyAUT("EnvironmentURL");
 
@@ -59,21 +70,33 @@ namespace WebAndLoadTestProject.TestCases.Coded
             }
             #endregion
 
+
+            
+
             #region Dependent WebTest
 
             if (Base.AccessToken.Count < 1)
             {
                 foreach (WebTestRequest wtr in IncludeWebTest("GenerateGAMToken", false)) { yield return wtr; }
             }
-            string access_token = "";
+            
             if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
 
             #endregion
-            string tempo = String.Format("{{\"token\":\"{0}\"}}", access_token);
 
-            string sBody = "{\"token\":\"" + access_token + "\",\"sdtLoginIn\":{\"email\":\"eromerog @ph.com.mx\",\"phone\":\"5540530743\"," +
-                "\"pass\":\"xeHb / g / NOGBDCRAE1unMxg == \",\"userguid\":\"\",\"deviceid\":\"c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33\"," +
-                "\"devicetype\":1,\"deviceosname\":\"Android\",\"deviceosversion\":\"5.0.2\"}}";
+
+            #region Message Build
+
+            string sPayload = String.Format("{{\"token\":\"{0}\",\"sdtLoginIn\":{{\"email\":\"{1}\",\"phone\":\"{2}\",\"pass\":\"{3}\",\"userguid\":\"{4}\",\"deviceid\":\"{5}\"," +
+                "\"devicetype\":\"{6}\",\"deviceosname\":\"{7}\",\"deviceosversion\":\"{8}\"}}}}",
+                access_token, this.Context["Login.Login#csv.email"].ToString(), this.Context["Login.Login#csv.phone"].ToString(), this.Context["Login.Login#csv.password"].ToString(),
+                this.Context["Login.Login#csv.userguid"].ToString(), this.Context["Login.Login#csv.deviceid"].ToString(), this.Context["Login.Login#csv.devicetype"].ToString(),
+                this.Context["Login.Login#csv.deviceosname"].ToString(), this.Context["Login.Login#csv.deviceosversion"].ToString());
+
+            //string sBody = "{\"token\":\"" + access_token + "\",\"sdtLoginIn\":{\"email\":\"eromerog @ph.com.mx\",\"phone\":\"5540530743\"," +
+            //    "\"pass\":\"xeHb / g / NOGBDCRAE1unMxg == \",\"userguid\":\"\",\"deviceid\":\"c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33\"," +
+            //    "\"devicetype\":1,\"deviceosname\":\"Android\",\"deviceosversion\":\"5.0.2\"}}";
+            #endregion
 
             #region WebTest
 
@@ -87,7 +110,7 @@ namespace WebAndLoadTestProject.TestCases.Coded
             webRequest.Headers.Add(new WebTestRequestHeader("Content-type", "application/json"));
             webRequest.Headers.Add(new WebTestRequestHeader("Authorization", propertyLoader.GetPropertyAUT("OAuth")));
             //Request Body JSON
-            StringHttpBody webRequestLoginBody = new StringHttpBody { BodyString = sBody, ContentType = "application/json", InsertByteOrderMark = false };
+            StringHttpBody webRequestLoginBody = new StringHttpBody { BodyString = sPayload, ContentType = "application/json", InsertByteOrderMark = false };
             webRequest.Body = webRequestLoginBody;
             yield return webRequest;
             webRequest = null;

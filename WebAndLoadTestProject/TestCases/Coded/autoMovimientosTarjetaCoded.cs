@@ -19,6 +19,15 @@ namespace WebAndLoadTestProject.TestCases.Coded
     using PerformanceLibrary.ValidationRules;
     using PerformanceLibrary.Core;
 
+
+    [DeploymentItem("webandloadtestproject\\Resources\\Movimientos.csv")]
+    [DataSource("Movimientos", "Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\Resources\\Movimientos.csv", Microsoft.VisualStudio.TestTools.WebTesting.DataBindingAccessMethod.Sequential, Microsoft.VisualStudio.TestTools.WebTesting.DataBindingSelectColumns.SelectOnlyBoundColumns, "Movimientos#csv")]
+    [DataBinding("Movimientos", "Movimientos#csv", "currencyId", "Movimientos.Movimientos#csv.currencyId")]
+    [DataBinding("Movimientos", "Movimientos#csv", "creditLineId", "Movimientos.Movimientos#csv.creditLineId")]
+    [DataBinding("Movimientos", "Movimientos#csv", "cardId", "Movimientos.Movimientos#csv.cardId")]
+    [DataBinding("Movimientos", "Movimientos#csv", "billingCycleId", "Movimientos.Movimientos#csv.billingCycleId")]
+    [DataBinding("Movimientos", "Movimientos#csv", "billingPeriodId", "Movimientos.Movimientos#csv.billingPeriodId")]
+    [DataBinding("Movimientos", "Movimientos#csv", "billingYear", "Movimientos.Movimientos#csv.billingYear")]
     [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken", "webandloadtestproject.dll")]
     public class autoMovimientosTarjetaCoded : WebTest
     {
@@ -71,8 +80,10 @@ namespace WebAndLoadTestProject.TestCases.Coded
             if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
 
             string sBody = string.Format("{{\"token\":\"{0}\"," +
-                "\"movParms\":{{\"currencyId\":484,\"creditLineId\":500168,\"cardId\":\"6520030238514058\",\"billingCycleId\":1,\"billingPeriodId\":9,\"billingYear\":2017}}" +
-                "}}", access_token);
+                "\"movParms\":{{\"currencyId\":{1},\"creditLineId\":{2},\"cardId\":\"{3}\",\"billingCycleId\":{4},\"billingPeriodId\":{5},\"billingYear\":{6}}}" +
+                "}}", access_token,Convert.ToUInt32(this.Context["Movimientos.Movimientos#csv.currencyId"].ToString()), Convert.ToUInt32(this.Context["Movimientos.Movimientos#csv.creditLineId"].ToString()),
+                StringManagement.CleanUpChar("'",this.Context["Movimientos.Movimientos#csv.cardId"].ToString()),Convert.ToUInt32(this.Context["Movimientos.Movimientos#csv.billingCycleId"].ToString()),
+                Convert.ToUInt32(this.Context["Movimientos.Movimientos#csv.billingPeriodId"].ToString()),Convert.ToUInt32(this.Context["Movimientos.Movimientos#csv.billingYear"].ToString()));
 
             #region WebTest
 

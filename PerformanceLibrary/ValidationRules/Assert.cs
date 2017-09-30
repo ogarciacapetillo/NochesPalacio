@@ -35,15 +35,22 @@ namespace PerformanceLibrary.ValidationRules
             if (!System.String.IsNullOrWhiteSpace(e.Response.BodyString))
             {
                 // Response could be HTML code for an Internal Server Error
-                foreach(HtmlTag tag in e.Response.HtmlDocument.GetFilteredHtmlTags("title"))
+                if (e.Response.BodyString.Contains("Error"))
                 {
-                    if (tag.GetAttributeValue("Value").Equals("Error"))
-                    {
-                        e.IsValid = validated;
-                        e.Message = (e.Response.HtmlDocument.GetFilteredHtmlTags("body")).ElementAt(0).ToString();
-                        return;
-                    }                   
+                    //e.IsValid = validated;
+                    //e.WebTest.Outcome = Outcome.Fail;                    
+                    return;
                 }
+                //foreach(HtmlTag tag in e.Response.HtmlDocument.GetFilteredHtmlTags("title"))
+                //{
+                //    if (tag.Attributes is null) { return; }
+                //    if (tag.GetAttributeValue("Value").Equals("Error"))
+                //    {
+                //        e.IsValid = validated;
+                //        e.Message = (e.Response.HtmlDocument.GetFilteredHtmlTags("body")).ElementAt(0).ToString();
+                //        return;
+                //    }                   
+                //}
                 // Get the response string, and parse into json
                 string json = e.Response.BodyString;                
                 var jsonExtract = new JsonRegex(json);

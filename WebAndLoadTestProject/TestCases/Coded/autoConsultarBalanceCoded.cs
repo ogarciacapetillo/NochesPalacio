@@ -19,6 +19,9 @@ namespace WebAndLoadTestProject.TestCases.Coded
     using PerformanceLibrary.ValidationRules;
     using PerformanceLibrary.Core;
 
+    [DeploymentItem("webandloadtestproject\\Resources\\Saldos.csv")]
+    [DataSource("Saldos", "Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\Resources\\Saldos.csv", Microsoft.VisualStudio.TestTools.WebTesting.DataBindingAccessMethod.Sequential, Microsoft.VisualStudio.TestTools.WebTesting.DataBindingSelectColumns.SelectOnlyBoundColumns, "Saldos#csv")]
+    [DataBinding("Saldos", "Saldos#csv", "tarjetanumero", "Saldos.Saldos#csv.tarjetanumero")]
     [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken", "webandloadtestproject.dll")]
     public class autoConsultarBalanceCoded : WebTest
     {
@@ -68,7 +71,7 @@ namespace WebAndLoadTestProject.TestCases.Coded
             string access_token = "";
             if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
 
-            string sBody = "{\"TarjetaNumero\":\"6520030238514058\",\"access_token\":\"" + access_token + "\"}";
+            string sBody = String.Format("{{\"TarjetaNumero\":\"{0}\",\"access_token\":\"" + access_token + "\"}}", StringManagement.CleanUpChar("'",this.Context["Saldos.Saldos#csv.tarjetanumero"].ToString()));
 
             #region WebTest
 

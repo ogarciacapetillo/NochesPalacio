@@ -50,6 +50,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="autoConsultarBalanceCodedTemp.cs" />
     <Compile Include="TestCases\Coded\autoPagoTarjetaCoded.cs" />
     <Compile Include="TestCases\Coded\autoMovimientosTarjetaCoded.cs" />
     <Compile Include="TestCases\Coded\autoConsultarBalanceCoded.cs" />
@@ -76,8 +77,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Book1.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Login.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Movimientos.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Pagos.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Saldos.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\TestData.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\Generated\autoGenerateGAMToken.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

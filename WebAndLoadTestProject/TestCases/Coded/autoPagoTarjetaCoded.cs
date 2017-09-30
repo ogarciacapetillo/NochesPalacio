@@ -19,6 +19,18 @@ namespace WebAndLoadTestProject.TestCases.Coded
     using PerformanceLibrary.ValidationRules;
     using PerformanceLibrary.Core;
 
+    [DeploymentItem("webandloadtestproject\\Resources\\Pagos.csv")]
+    [DataSource("Pagos", "Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\Resources\\Pagos.csv", Microsoft.VisualStudio.TestTools.WebTesting.DataBindingAccessMethod.Sequential, Microsoft.VisualStudio.TestTools.WebTesting.DataBindingSelectColumns.SelectOnlyBoundColumns, "Pagos#csv")]
+    [DataBinding("Pagos", "Pagos#csv", "deviceId", "Pagos.Pagos#csv.deviceId")]
+    [DataBinding("Pagos", "Pagos#csv", "deviceType", "Pagos.Pagos#csv.deviceType")]
+    [DataBinding("Pagos", "Pagos#csv", "userGUID", "Pagos.Pagos#csv.userGUID")]
+    [DataBinding("Pagos", "Pagos#csv", "cardId", "Pagos.Pagos#csv.cardId")]
+    [DataBinding("Pagos", "Pagos#csv", "cardExpDate", "Pagos.Pagos#csv.cardExpDate")]
+    [DataBinding("Pagos", "Pagos#csv", "cardCVV", "Pagos.Pagos#csv.cardCVV")]
+    [DataBinding("Pagos", "Pagos#csv", "cardEPHId", "Pagos.Pagos#csv.cardEPHId")]
+    [DataBinding("Pagos", "Pagos#csv", "amount", "Pagos.Pagos#csv.amount")]
+    [DataBinding("Pagos", "Pagos#csv", "cardHolder", "Pagos.Pagos#csv.cardHolder")]
+
     [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken", "webandloadtestproject.dll")]
     public class autoPagoTarjetaCoded : WebTest
     {
@@ -69,9 +81,14 @@ namespace WebAndLoadTestProject.TestCases.Coded
             string access_token = "";
             if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
 
-            string sBody = string.Format("{{\"token\":\"{0}\",\"sdtPagoIn\":{{\"DeviceId\":\"6c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33\"," +
-                "\"devicetype\":1,\"UserGUID\":\"b6097a4d-acad-4035-96eb-dc4a2e9a7824\",\"cardID\":\"6520030238514058\",\"cardExpDate\":\"0419\"," +
-                "\"cardCVV\":\"123\",\"cardEPHId\":\"6520030238514058\",\"amount\":1,\"cardHolder\":\"Eduardo Javier Epura\"}}}}", access_token);
+            string sBody = string.Format("{{\"token\":\"{0}\",\"sdtPagoIn\":{{\"DeviceId\":\"{1}\"," +
+                "\"devicetype\":{2},\"UserGUID\":\"{3}\",\"cardID\":\"{4}\",\"cardExpDate\":\"{5}\"," +
+                "\"cardCVV\":\"{6}\",\"cardEPHId\":\"{7}\",\"amount\":{8},\"cardHolder\":\"{9}\"}}}}", 
+                access_token,this.Context["Pagos.Pagos#csv.deviceId"].ToString(),Convert.ToInt32(this.Context["Pagos.Pagos#csv.deviceType"].ToString()),
+                this.Context["Pagos.Pagos#csv.userGUID"].ToString(),StringManagement.CleanUpChar("'",this.Context["Pagos.Pagos#csv.cardId"].ToString()),
+                this.Context["Pagos.Pagos#csv.cardExpDate"].ToString(),this.Context["Pagos.Pagos#csv.cardCVV"].ToString(),
+                StringManagement.CleanUpChar("'",this.Context["Pagos.Pagos#csv.cardEPHId"].ToString()),Convert.ToInt32(this.Context["Pagos.Pagos#csv.amount"].ToString()),
+                this.Context["Pagos.Pagos#csv.cardHolder"].ToString());
 
             #region WebTest
 

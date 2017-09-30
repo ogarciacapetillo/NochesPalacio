@@ -73,6 +73,7 @@
     <Compile Include="RequestPlugin\Authentication.cs" />
     <Compile Include="Resources\Properties.Designer.cs" />
     <Compile Include="Utils\ExcelFetchData.cs" />
+    <Compile Include="Utils\StringManagement.cs" />
     <Compile Include="ValidationRules\HTTPResponseCode.cs" />
     <Compile Include="Utils\JsonDeserializer.cs" />
     <Compile Include="Utils\JsonHandler.cs" />
