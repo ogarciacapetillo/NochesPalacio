@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.WebTesting.Rules;
 using PerformanceLibrary.Core;
 using PerformanceLibrary.Utils;
+using PerformanceLibrary.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace WebAndLoadTestProject.TestCases
 {
-    [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken","webandloadtestproject.dll")]
+    //[IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken", "webandloadtestproject.dll")]
     public class MovimientosTarjeta : WebTest
     {
         PropertyLoader propertyLoader = new PropertyLoader();
@@ -44,6 +45,8 @@ namespace WebAndLoadTestProject.TestCases
             {
                 HTTPResponseCode validateResponseCode = new HTTPResponseCode();
                 this.ValidateResponse += new EventHandler<ValidationEventArgs>(validateResponseCode.Validate);
+                Assert assertResponse = new Assert();
+                this.ValidateResponse += new EventHandler<ValidationEventArgs>(assertResponse.Validate);
             }
             #endregion
 
@@ -55,15 +58,18 @@ namespace WebAndLoadTestProject.TestCases
             }
 
             #endregion
-            
-            string sBody = string.Format("{\"token\":\"{0}\"," +
-                "\"movParms\":{\"currencyId\":484,\"creditLineId\":500168,\"cardId\":\"6520030238514058\",\"billingCycleId\":1,\"billingPeriodId\":9,\"billingYear\":2017}" +
-                "}", Base.AccessToken);
+
+            string access_token = "";
+            if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
+
+            string sBody = string.Format("{{\"token\":\"{0}\"," +
+                "\"movParms\":{{\"currencyId\":484,\"creditLineId\":500168,\"cardId\":\"6520030238514058\",\"billingCycleId\":1,\"billingPeriodId\":9,\"billingYear\":2017}}" +
+                "}}", access_token);
 
             #region WebTest
 
             this.BeginTransaction("PH_NP_MovimientosTarjeta");
-            WebTestRequest webRequest = new WebTestRequest(this.Context["EnvironmentURL"].ToString() + "/phApp/rest/getMovimientosTarjetaPalacio");
+            WebTestRequest webRequest = new WebTestRequest(this.Context["NetEnvironment"].ToString() + "/phApp/rest/getMovimientosTarjetaPalacio");
             webRequest.ExpectedHttpStatusCode = 200;            
             webRequest.Method = "POST";
             webRequest.Cache = false;

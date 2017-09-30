@@ -1,6 +1,7 @@
 ﻿using LoggerFramework;
 using LoggerFramework.Shared;
 using Microsoft.VisualStudio.TestTools.WebTesting;
+using PerformanceLibrary.Data;
 using PerformanceLibrary.Utils;
 using System;
 using System.Collections.Generic;
@@ -41,8 +42,9 @@ namespace WebAndLoadTestProject.TestCases.Shared
             {
                 LogHelper.Log(LogTarget.File, "Hello World");
                 CleanUpStructures();
-                loadDataFromExcel = new ExcelReader("LoadTestData");                
-                FillingUpStructures();
+                loadDataFromExcel = new ExcelReader("TestData.xlsx");                
+                int noRecords = FillingUpStructures();
+                LogHelper.Log(LogTarget.File, String.Format("Total number of loaded records: {0}", noRecords));
             }catch (Exception ex)
             {
                 LogHelper.Log(LogTarget.File, string.Format("Exception during loading data from Excel workbook: {0}",ex.Message));
@@ -57,16 +59,16 @@ namespace WebAndLoadTestProject.TestCases.Shared
 
         }
 
-        private static void FillingUpStructures()
-        {            
-            iTotalElements++;
+        private static int FillingUpStructures()
+        {
+            return Dataset.UpdateStructures(loadDataFromExcel);
         }
         #endregion
 
         public override IEnumerator<WebTestRequest> GetRequestEnumerator()
         {
             LoadDataFromExcel();
-            WebTestRequest webTestRequest = new WebTestRequest("https://www.google.be/");
+            WebTestRequest webTestRequest = new WebTestRequest("https://www.google.com/");
             webTestRequest.Cache = false;
             webTestRequest.ExpectedHttpStatusCode = 200;
             this.Context.Add("Number of records loaded", iTotalElements);            

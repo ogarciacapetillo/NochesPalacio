@@ -20,13 +20,9 @@ namespace LoggerFramework
             {
 
                 using (StreamWriter streamWriter = new StreamWriter(filePath,append:true))
-
                 {
-
                     streamWriter.WriteLine(message);
-
-                    streamWriter.Close();
-
+                    //streamWriter.Close();
                 }
             }
 

@@ -46,10 +46,8 @@ namespace WebAndLoadTestProject.TestCases
                 // Call method to validate HTTP response conde
                 HTTPResponseCode validateResponseCode = new HTTPResponseCode();
                 this.ValidateResponse += new EventHandler<ValidationEventArgs>(validateResponseCode.Validate);
-
-                // Call method to validate JSON message 
-                Assert assert = new Assert();
-                this.ValidateResponse += new EventHandler<ValidationEventArgs>(assert.Validate);
+                Assert assertResponse = new Assert();
+                this.ValidateResponse += new EventHandler<ValidationEventArgs>(assertResponse.Validate);
             }
             #endregion
 

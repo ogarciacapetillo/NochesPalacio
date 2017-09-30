@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="30cc596e-cf6a-4581-bd77-d31ce1e1bca7" name="Oscar@HOMEPC 2017-09-29 16:12:08" runUser="HOMEPC\Oscar" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bec49d4d-fc80-4f98-94f0-afd3c8c3eb7a">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Oscar_HOMEPC 2017-09-29 16_12_08">
+      <DeploymentItem filename="C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.dll" />
+      <DeploymentItem filename="C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 9.0" MaxConnections="6">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+    <Properties>
+      <Property name="TestSettingsUIType" value="UnitTest" />
+    </Properties>
+  </TestSettings>
+  <Times creation="2017-09-29T16:12:08.5517693-05:00" queuing="2017-09-29T16:12:09.9398122-05:00" start="2017-09-29T16:12:10.0388350-05:00" finish="2017-09-29T16:13:39.1102713-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="HOMEPC" outcome="Error" timestamp="2017-09-29T16:13:39.1092699-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <CodedWebTest name="LoadTestData" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="e0719918-56b6-66f0-c63e-407a952e0b2f">
+      <DeploymentItems>
+        <DeploymentItem filename=".\Resources" />
+      </DeploymentItems>
+      <Execution id="ce2c3a4e-5e58-4528-b99c-c22635365d75" />
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Shared" class="LoadTestData" />
+    </CodedWebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="e0719918-56b6-66f0-c63e-407a952e0b2f" executionId="ce2c3a4e-5e58-4528-b99c-c22635365d75" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <WebTestResult executionId="ce2c3a4e-5e58-4528-b99c-c22635365d75" testId="e0719918-56b6-66f0-c63e-407a952e0b2f" testName="LoadTestData" computerName="HOMEPC" duration="00:01:28.9203934" startTime="2017-09-29T16:12:10.1898779-05:00" endTime="2017-09-29T16:13:39.1102713-05:00" testType="37e36796-fb51-4610-8d5c-e00ceaa68b9f" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce2c3a4e-5e58-4528-b99c-c22635365d75">
+      <TestSettings name="Local" id="bec49d4d-fc80-4f98-94f0-afd3c8c3eb7a">
+        <Description>These are default test settings for a local test run.</Description>
+        <Deployment runDeploymentRoot="Oscar_HOMEPC 2017-09-29 16_12_08">
+          <DeploymentItem filename="C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.dll" />
+          <DeploymentItem filename="C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll" />
+        </Deployment>
+        <Execution>
+          <TestTypeSpecific>
+            <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+              <AssemblyResolution>
+                <TestDirectory useLoadContext="true" />
+              </AssemblyResolution>
+            </UnitTestRunConfig>
+            <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+              <Browser name="Internet Explorer 9.0" MaxConnections="6">
+                <Headers>
+                  <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+                  <Header name="Accept" value="*/*" />
+                  <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+                  <Header name="Accept-Encoding" value="GZIP" />
+                </Headers>
+              </Browser>
+            </WebTestRunConfiguration>
+          </TestTypeSpecific>
+          <AgentRule name="LocalMachineDefaultRole">
+          </AgentRule>
+        </Execution>
+        <Properties>
+          <Property name="TestSettingsUIType" value="UnitTest" />
+        </Properties>
+      </TestSettings>
+      <WebTestResultFilePath>
+      </WebTestResultFilePath>
+    </WebTestResult>
+  </Results>
+</TestRun>

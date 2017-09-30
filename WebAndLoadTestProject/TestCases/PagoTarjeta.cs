@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.WebTesting.Rules;
 using PerformanceLibrary.Core;
 using PerformanceLibrary.Utils;
+using PerformanceLibrary.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,17 @@ using System.Threading.Tasks;
 
 namespace WebAndLoadTestProject.TestCases
 {
-    [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken","webandloadtestproject.dll")]
+    //[IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken","webandloadtestproject.dll")]
     public class PagoTarjeta : WebTest
     {
+        #region Constants
+        //,"sdtPagoIn":{"DeviceId":"6c188af9-4e68-32a3-9816-9bfe21a23d33","devicetype":1,"UserGUID":"b6097a4d-acad-4035-96eb-dc4a2e9a7824","cardID":"6520030238514058","cardExpDate":"0419",
+        //"cardCVV":"123","cardEPHId":"6520030238514058","amount":1,"cardHolder":"Eduardo Javier Epura"}}
+        //static string DeviceId = "6c188af9-4e68-32a3-9816-9bfe21a23d33";
+        //static string UserGUID = "b6097a4d-acad-4035-96eb-dc4a2e9a7824";
+        //static string cardID = "6520030238514058";
+
+        #endregion
         PropertyLoader propertyLoader = new PropertyLoader();
         public PagoTarjeta()
         {
@@ -44,6 +53,8 @@ namespace WebAndLoadTestProject.TestCases
             {
                 HTTPResponseCode validateResponseCode = new HTTPResponseCode();
                 this.ValidateResponse += new EventHandler<ValidationEventArgs>(validateResponseCode.Validate);
+                Assert assertResponse = new Assert();
+                this.ValidateResponse += new EventHandler<ValidationEventArgs>(assertResponse.Validate);
             }
             #endregion
 
@@ -55,16 +66,18 @@ namespace WebAndLoadTestProject.TestCases
             }
 
             #endregion
-            
-            string sBody = string.Format("{\"token\":\"{0}\"," +
-                "\"sdtPagoIn\":{\"DeviceId\":\"6c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33","devicetype\":1,\"UserGUID\":\"b6097a4d - acad - 4035 - 96eb - dc4a2e9a7824\"," +
-                "\"cardID\":\"6520030238514058\",\"cardExpDate\":\"0419\",\"cardCVV\":\"123\",\"cardEPHId\":\"6520030238514058\",\"amount\":1,\"cardHolder\":\"Eduardo Javier Epura\"}" +
-                "}", Base.AccessToken);
+
+            string access_token = "";
+            if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
+
+            string sBody = string.Format("{{\"token\":\"{0}\",\"sdtPagoIn\":{{\"DeviceId\":\"6c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33\"," +
+                "\"devicetype\":1,\"UserGUID\":\"b6097a4d-acad-4035-96eb-dc4a2e9a7824\",\"cardID\":\"6520030238514058\",\"cardExpDate\":\"0419\"," +
+                "\"cardCVV\":\"123\",\"cardEPHId\":\"6520030238514058\",\"amount\":1,\"cardHolder\":\"Eduardo Javier Epura\"}}}}", access_token);
 
             #region WebTest
 
             this.BeginTransaction("PH_NP_PagpTarjeta");
-            WebTestRequest webRequest = new WebTestRequest(this.Context["EnvironmentURL"].ToString() + "/phApp/rest/PagoTarjetaPalacio");
+            WebTestRequest webRequest = new WebTestRequest(this.Context["NetEnvironment"].ToString() + "/phApp/rest/PagoTarjetaPalacio");
             webRequest.ExpectedHttpStatusCode = 200;            
             webRequest.Method = "POST";
             webRequest.Cache = false;

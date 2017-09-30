@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.LoadTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
@@ -47,18 +50,21 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestCases\Coded\autoPagoTarjetaCoded.cs" />
+    <Compile Include="TestCases\Coded\autoMovimientosTarjetaCoded.cs" />
+    <Compile Include="TestCases\Coded\autoConsultarBalanceCoded.cs" />
+    <Compile Include="TestCases\Coded\autoLoginCoded.cs" />
+    <Compile Include="TestCases\Coded\autoGenerateGAMTokenCoded.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\PagoTarjeta.cs" />
     <Compile Include="TestCases\MovimientosTarjeta.cs" />
     <Compile Include="TestCases\GenerateGAMToken.cs" />
-    <Compile Include="TestCases\ConsutlarBalance.cs" />
+    <Compile Include="TestCases\ConsultarBalance.cs" />
     <Compile Include="TestCases\Login.cs" />
     <Compile Include="TestCases\Shared\LoadTestData.cs" />
     <Compile Include="TestCases\TestTemplate.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestScenarios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LoggerFramework\LoggerFramework.csproj">
       <Project>{ce6b5168-6e51-48a3-bf1c-f1839e743610}</Project>
@@ -71,6 +77,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TestData.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Generated\autoGenerateGAMToken.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Generated\autoLogin.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Generated\autoConsultarBalance.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Generated\autoMovimientosTarjeta.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Generated\autoPagoTarjeta.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestScenarios\Baseline.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

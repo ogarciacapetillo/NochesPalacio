@@ -20,8 +20,8 @@ C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.d
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.pdb
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\PerformanceLibrary.dll
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\Newtonsoft.Json.dll
-C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\NPOI.OOXML.dll
+C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\NPOI.dll
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\NPOI.OpenXmlFormats.dll
 C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\NPOI.OpenXml4Net.dll

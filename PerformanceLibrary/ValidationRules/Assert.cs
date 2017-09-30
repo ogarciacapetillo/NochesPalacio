@@ -14,21 +14,18 @@ namespace PerformanceLibrary.ValidationRules
     public class Assert : ValidationRule
     {
         #region Annotations
+        [Obsolete]
         public override string RuleName
         {
             get { return "Validate Response"; }
         }
 
+        [Obsolete]
         public override string RuleDescription
         {
             get { return "Validates that response does not have a invalid success message"; }
         }
         #endregion
-
-        public string Name { get; set; }
-
-        public string ExpectedMessage { get; set; }
-      
 
         public override void Validate(object sender, ValidationEventArgs e)
         {
@@ -48,10 +45,22 @@ namespace PerformanceLibrary.ValidationRules
                     }                   
                 }
                 // Get the response string, and parse into json
-                string json = e.Response.BodyString;
+                string json = e.Response.BodyString;                
                 var jsonExtract = new JsonRegex(json);
-
-                List<string> r = jsonExtract.GetMultipleValue("message");
+                List<string> r = jsonExtract.GetMultipleValue("success");
+                if (r.Count == 0) {r= jsonExtract.GetMultipleValue("Success"); }
+                foreach(string value in r)
+                {                   
+                    if (!value.StartsWith("true", StringComparison.InvariantCultureIgnoreCase)){
+                        e.IsValid = false;
+                        e.Message = "Message -> success: false found";
+                        e.WebTest.Outcome = Outcome.Fail;
+                        break;
+                    }
+                }
+                e.IsValid = true;
+                e.Message = "Message -> success: true found";
+                e.WebTest.Context.Add("Validation Message:", e.Message);
             }            
         }
     }

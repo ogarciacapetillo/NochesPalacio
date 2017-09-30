@@ -2,12 +2,13 @@
 using Microsoft.VisualStudio.TestTools.WebTesting.Rules;
 using PerformanceLibrary.Core;
 using PerformanceLibrary.Utils;
+using PerformanceLibrary.ValidationRules;
 using System;
 using System.Collections.Generic;
 
 namespace WebAndLoadTestProject.TestCases
 {
-    [IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken","webandloadtestproject.dll")]
+    //[IncludeCodedWebTest("WebAndLoadTestProject.TestCases.GenerateGAMToken", "webandloadtestproject.dll")]
     public class Login : WebTest
     {
         PropertyLoader propertyLoader = new PropertyLoader();
@@ -41,6 +42,8 @@ namespace WebAndLoadTestProject.TestCases
             {
                 HTTPResponseCode validateResponseCode = new HTTPResponseCode();
                 this.ValidateResponse += new EventHandler<ValidationEventArgs>(validateResponseCode.Validate);
+                Assert assertResponse = new Assert();
+                this.ValidateResponse += new EventHandler<ValidationEventArgs>(assertResponse.Validate);
             }
             #endregion
 
@@ -50,17 +53,20 @@ namespace WebAndLoadTestProject.TestCases
             {
                 foreach (WebTestRequest wtr in IncludeWebTest("GenerateGAMToken", false)) { yield return wtr; }
             }
+            string access_token = "";
+            if (Base.AccessToken.Count > 0) { access_token = Base.AccessToken[0]; }
 
             #endregion
-            //{"email":"eromerog@ph.com.mx","phone":"5540530743","pass":"xeHb/g/NOGBDCRAE1unMxg==","userguid":"","deviceid":"c188af9-4e68-32a3-9816-9bfe21a23d33","devicetype":1,"deviceosname":"Android","deviceosversion":"5.0.2"}}
-            string sBody = string.Format("{\"token\":\"{0}\",\"stdLoginIn\":{\"email\":\"eromerog@ph.com.mx\"," +
-                "\"phone\":\"5540530743\",\"pass\":\"xeHb / g / NOGBDCRAE1unMxg == \",\"userguid\":\"\",\"deviceid\":\"c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33\"," +
-                "\"devicetype\":1,\"deviceosname\":\"Android\",\"deviceosversion\":\"5.0.2\"}}", Base.AccessToken);
+            string tempo = String.Format("{{\"token\":\"{0}\"}}", access_token);
+
+            string sBody = "{\"token\":\"" + access_token + "\",\"sdtLoginIn\":{\"email\":\"eromerog @ph.com.mx\",\"phone\":\"5540530743\"," +
+                "\"pass\":\"xeHb / g / NOGBDCRAE1unMxg == \",\"userguid\":\"\",\"deviceid\":\"c188af9 - 4e68 - 32a3 - 9816 - 9bfe21a23d33\"," +
+                "\"devicetype\":1,\"deviceosname\":\"Android\",\"deviceosversion\":\"5.0.2\"}}";
 
             #region WebTest
 
             this.BeginTransaction("PH_NP_Login");
-            WebTestRequest webRequest = new WebTestRequest(this.Context["EnvironmentURL"].ToString() + "/phApp/rest/Login");
+            WebTestRequest webRequest = new WebTestRequest(this.Context["NetEnvironment"].ToString() + "/phApp/rest/Login");
             webRequest.ExpectedHttpStatusCode = 200;            
             webRequest.Method = "POST";
             webRequest.Cache = false;

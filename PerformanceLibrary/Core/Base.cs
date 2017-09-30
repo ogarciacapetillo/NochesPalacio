@@ -14,12 +14,13 @@ namespace PerformanceLibrary.Core
         private static PropertyLoader propertyLoader = new PropertyLoader();
 
         private static List<string> accessToken = new List<string>();
+       
 
         #endregion
 
         #region Properties
         public static List<string> AccessToken { get => accessToken; set => accessToken = value; }
-
+      
         #endregion
 
         #region Public methods
@@ -94,7 +95,7 @@ namespace PerformanceLibrary.Core
             }
             catch (Exception ex)
             {
-                Console.WriteLine(string.Format("{0}: {1}", "Error during the conversion from string to integer", ex.Message));
+                Console.WriteLine(string.Format("{0}", "Error during the conversion from string to integer", ex.Message));
                 Console.WriteLine(ex.StackTrace);
                 Console.WriteLine();
             }

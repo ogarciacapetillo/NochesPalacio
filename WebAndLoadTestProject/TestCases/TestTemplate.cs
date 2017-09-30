@@ -16,11 +16,12 @@ namespace WebAndLoadTestProject
     using Microsoft.VisualStudio.TestTools.WebTesting;
     using Microsoft.VisualStudio.TestTools.WebTesting.Rules;
     using PerformanceLibrary.Utils;
+    using PerformanceLibrary.ValidationRules;
 
-    public class WebTest1Coded : WebTest
+    public class TestTemplate : WebTest
     {
 
-        public WebTest1Coded()
+        public TestTemplate()
         {
             this.PreAuthenticate = true;
             this.Proxy = "default";

@@ -76,7 +76,7 @@ namespace PerformanceLibrary.Utils
             {
                 if (!lSheets.Contains(sheetName))
                 {
-                    throw new ExecutionEngineException(sheetName + " not found");
+                    throw new Exception(sheetName + " not found");
                 }
             }
             catch (Exception)
@@ -93,7 +93,10 @@ namespace PerformanceLibrary.Utils
 
         private Dictionary<string, Dictionary<string, string>> ConvertSheet(XSSFSheet xSheet)
         {
-            Dictionary<string, Dictionary<string, string>> sheetDictionary = new Dictionary<string, Dictionary<string, string>>();
+            
+            List<List<KeyValuePair<string, string>>> sheetDic = new List<List<KeyValuePair<string, string>>>();
+
+            Dictionary <string, Dictionary<string, string>> sheetDictionary = new Dictionary<string, Dictionary<string, string>>();
 
             int rows = xSheet.PhysicalNumberOfRows;
             int cols = xSheet.GetRow(0).LastCellNum;
