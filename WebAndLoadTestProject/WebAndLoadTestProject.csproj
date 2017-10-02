@@ -110,6 +110,9 @@
     <None Include="TestCases\Generated\autoPagoTarjeta.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestScenarios\LoadTestIncremental.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestScenarios\Baseline.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

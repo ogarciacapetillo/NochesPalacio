@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="30131258-327d-4f83-b715-46e7ec68bcf0" name="Oscar@HOMEPC 2017-10-01 20:43:54" runUser="HOMEPC\Oscar" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bec49d4d-fc80-4f98-94f0-afd3c8c3eb7a">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Oscar_HOMEPC 2017-10-01 20_43_54">
+      <DeploymentItem filename="C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.dll" />
+      <DeploymentItem filename="C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 9.0" MaxConnections="6">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+    <Properties>
+      <Property name="TestSettingsUIType" value="UnitTest" />
+    </Properties>
+  </TestSettings>
+  <Times creation="2017-10-01T20:43:54.6982951-05:00" queuing="2017-10-01T20:43:55.2682595-05:00" start="2017-10-01T20:43:55.3722563-05:00" finish="2017-10-01T20:43:57.3801213-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="1" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="HOMEPC" outcome="Warning" timestamp="2017-10-01T20:43:57.2640970-05:00">
+        <Text>Could not run load test 'Baseline' on agent 'HOMEPC': Network emulation is required for load test 'Baseline' but agent HOMEPC does not have the required administrative privileges.
+Network emulation is required for load test 'Baseline' but agent HOMEPC does not have the required administrative privileges.</Text>
+        <Exception>Microsoft.VisualStudio.TestTools.WebStress.LoadTestException: Could not run load test 'Baseline' on agent 'HOMEPC': Network emulation is required for load test 'Baseline' but agent HOMEPC does not have the required administrative privileges. ---&gt; Microsoft.VisualStudio.TestTools.WebStress.LoadTestException: Network emulation is required for load test 'Baseline' but agent HOMEPC does not have the required administrative privileges.
+   at Microsoft.VisualStudio.TestTools.WebStress.WebLoadTestAdapter.VerifyNetworkEmulationIsUsable(WebTestSuite loadTest)
+   at Microsoft.VisualStudio.TestTools.WebStress.WebLoadTestAdapter.VerifySuiteIsReadyToRun(WebTestSuite suite)
+   at Microsoft.VisualStudio.TestTools.WebStress.WebLoadTestAdapter.Prepare(ITestElement testElement)
+   --- End of inner exception stack trace ---
+   at Microsoft.VisualStudio.TestTools.WebStress.LoadTestControllerPlugin.ProcessAnyOutstandingExeception(Boolean throwException)
+   at Microsoft.VisualStudio.TestTools.WebStress.LoadTestControllerPlugin.MessageSink(TestMessage report)
+   at Microsoft.VisualStudio.TestTools.Controller.ControllerExecution.AgentEventImmediate(String agentName, TestMessage message)</Exception>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <CodedWebTest name="autoLoginCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="e14093ef-4937-e512-70bd-68f50974aaca">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Login.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoLoginCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <CodedWebTest name="autoConsultarBalanceCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="28ea770c-655b-ff8d-f584-9f833d4a3422">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Saldos.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoConsultarBalanceCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <CodedWebTest name="autoPagoTarjetaCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="66b05ec3-46c9-91e1-8e51-d5315f470828">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Pagos.csv" />
+      </DeploymentItems>
+      <Execution id="e7a3110c-98c5-43f7-8397-70d2b5887bd5" />
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoPagoTarjetaCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <CodedWebTest name="autoMovimientosTarjetaCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="7774eab4-164d-dbbc-8426-e04571af5f0e">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Movimientos.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoMovimientosTarjetaCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <LoadTest Name="Baseline" Description="" Owner="" storage="c:\development\palacio\nochespalacio\webandloadtestproject\testscenarios\baseline.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="33532a4d-af2d-41f6-81dc-828c413d2fee">
+      <Scenarios>
+        <Scenario Name="Basseline" DelayBetweenIterations="10" PercentNewUsers="0" IPSwitching="false" TestMixType="PercentageOfTestsStarted" ApplyDistributionToPacingDelay="true" MaxTestIterations="0" DisableDuringWarmup="false" DelayStartTime="0" AllowedAgents="">
+          <ThinkProfile Value="0.2" Pattern="NormalDistribution" />
+          <LoadProfile Pattern="Step" InitialUsers="1" MaxUsers="25" StepUsers="2" StepDuration="300" StepRampTime="0" />
+          <TestMix>
+            <TestProfile Name="autoConsultarBalanceCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="28ea770c-655b-ff8d-f584-9f833d4a3422" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoGenerateGAMTokenCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="ce6b3c61-cc70-ed7d-0b45-05a97d4850d7" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoLoginCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="e14093ef-4937-e512-70bd-68f50974aaca" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoMovimientosTarjetaCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="7774eab4-164d-dbbc-8426-e04571af5f0e" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoPagoTarjetaCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="66b05ec3-46c9-91e1-8e51-d5315f470828" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+          </TestMix>
+          <BrowserMix>
+            <BrowserProfile Percentage="100">
+              <Browser Name="Smartphone" MaxConnections="2">
+                <Headers>
+                  <Header Name="User-Agent" Value="Mozilla/2.0 (compatible; MSIE 3.02; Windows CE; Smartphone; JavaScript; *)" />
+                  <Header Name="Accept" Value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, */*" />
+                  <Header Name="Accept-Language" Value="{{$IEAcceptLanguage}}" />
+                </Headers>
+              </Browser>
+            </BrowserProfile>
+          </BrowserMix>
+          <NetworkMix>
+            <NetworkProfile Percentage="100">
+              <Network Name="3G" BandwidthInKbps="NaN" NetworkProfileConfigurationXml="&lt;Emulation xmlns=&quot;http://microsoft.com/schemas/VisualStudio/TeamTest/2010&quot;&gt;&lt;VirtualChannel name=&quot;ThreeG-Channel1&quot;&gt;&lt;FilterList /&gt;&lt;VirtualLink instances=&quot;1&quot; name=&quot;link1&quot;&gt;&lt;LinkRule dir=&quot;upstream&quot;&gt;&lt;Bandwidth&gt;&lt;Speed unit=&quot;kbps&quot;&gt;512&lt;/Speed&gt;&lt;QueueManagement&gt;&lt;NormalQueue&gt;&lt;Size&gt;100&lt;/Size&gt;&lt;QueueMode&gt;packet&lt;/QueueMode&gt;&lt;DropType&gt;DropTail&lt;/DropType&gt;&lt;/NormalQueue&gt;&lt;/QueueManagement&gt;&lt;/Bandwidth&gt;&lt;Latency&gt;&lt;Fixed&gt;&lt;Time unit=&quot;msec&quot;&gt;150&lt;/Time&gt;&lt;/Fixed&gt;&lt;/Latency&gt;&lt;Loss&gt;&lt;Random&gt;&lt;Rate&gt;0.0025&lt;/Rate&gt;&lt;/Random&gt;&lt;/Loss&gt;&lt;/LinkRule&gt;&lt;LinkRule dir=&quot;downstream&quot;&gt;&lt;Bandwidth&gt;&lt;Speed unit=&quot;kbps&quot;&gt;64&lt;/Speed&gt;&lt;QueueManagement&gt;&lt;NormalQueue&gt;&lt;Size&gt;100&lt;/Size&gt;&lt;QueueMode&gt;packet&lt;/QueueMode&gt;&lt;DropType&gt;DropTail&lt;/DropType&gt;&lt;/NormalQueue&gt;&lt;/QueueManagement&gt;&lt;/Bandwidth&gt;&lt;Latency&gt;&lt;Fixed&gt;&lt;Time unit=&quot;msec&quot;&gt;150&lt;/Time&gt;&lt;/Fixed&gt;&lt;/Latency&gt;&lt;Loss&gt;&lt;Random&gt;&lt;Rate&gt;0.0025&lt;/Rate&gt;&lt;/Random&gt;&lt;/Loss&gt;&lt;/LinkRule&gt;&lt;/VirtualLink&gt;&lt;/VirtualChannel&gt;&lt;/Emulation&gt;" />
+            </NetworkProfile>
+          </NetworkMix>
+        </Scenario>
+      </Scenarios>
+      <CounterSets>
+        <CounterSet Name="HOMEPC" CounterSetType="LoadTest" LocId="">
+          <CounterCategories>
+            <CounterCategory Name="LoadTest:Scenario">
+              <Counters>
+                <Counter Name="User Load" HigherIsBetter="true" />
+                <Counter Name="Tests Running" HigherIsBetter="true" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Test">
+              <Counters>
+                <Counter Name="Total Tests" HigherIsBetter="true" />
+                <Counter Name="Passed Tests" HigherIsBetter="true" />
+                <Counter Name="Failed Tests" />
+                <Counter Name="Tests/Sec" HigherIsBetter="true" />
+                <Counter Name="Passed Tests/Sec" HigherIsBetter="true" />
+                <Counter Name="Failed Tests/Sec" />
+                <Counter Name="Avg. Requests/Test" HigherIsBetter="true" />
+                <Counter Name="Avg. Test Time" />
+                <Counter Name="% Time in LoadTestPlugin" />
+                <Counter Name="% Time in WebTest code" />
+                <Counter Name="% Time in Rules" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Transaction">
+              <Counters>
+                <Counter Name="Total Transactions" HigherIsBetter="true" />
+                <Counter Name="Avg. Transaction Time" />
+                <Counter Name="Avg. Response Time" />
+                <Counter Name="Transactions/Sec" HigherIsBetter="true" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Errors">
+              <Counters>
+                <Counter Name="Http Errors" />
+                <Counter Name="Validation Rule Errors" />
+                <Counter Name="Extraction Rule Errors" />
+                <Counter Name="Requests Timed Out" />
+                <Counter Name="Exceptions" />
+                <Counter Name="Total Errors" />
+                <Counter Name="Errors/Sec" />
+                <Counter Name="Threshold Violations/Sec" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Page">
+              <Counters>
+                <Counter Name="Total Pages" HigherIsBetter="true" />
+                <Counter Name="Avg. Page Time" />
+                <Counter Name="Page Response Time Goal" HigherIsBetter="true" />
+                <Counter Name="% Pages Meeting Goal" HigherIsBetter="true" />
+                <Counter Name="Pages/Sec" HigherIsBetter="true" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Request">
+              <Counters>
+                <Counter Name="Total Requests" HigherIsBetter="true" />
+                <Counter Name="Passed Requests" HigherIsBetter="true" />
+                <Counter Name="Failed Requests" />
+                <Counter Name="Cached Requests" HigherIsBetter="true" />
+                <Counter Name="Requests/Sec" HigherIsBetter="true" />
+                <Counter Name="Passed Requests/Sec" HigherIsBetter="true" />
+                <Counter Name="Failed Requests/Sec" />
+                <Counter Name="Avg. First Byte Time" />
+                <Counter Name="Avg. Response Time" />
+                <Counter Name="Avg. Connection Wait Time">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="LoadTest:Page" />
+                        <RuleParameter Name="DependentCounter" Value="Avg. Page Time" />
+                        <RuleParameter Name="DependentInstance" Value="_Total" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.25" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.5" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Avg. Content Length" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:LogEntries">
+              <Counters>
+                <Counter Name="Total Log Entries" />
+                <Counter Name="Log Entries/Sec" />
+              </Counters>
+            </CounterCategory>
+          </CounterCategories>
+        </CounterSet>
+        <CounterSet Name="Controller" CounterSetType="Controller" LocId="CounterSet_Controller">
+          <CounterCategories>
+            <CounterCategory Name="Memory">
+              <Counters>
+                <Counter Name="% Committed Bytes In Use" Range="100" />
+                <Counter Name="Available MBytes" RangeGroup="Memory Bytes" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="100" />
+                        <RuleParameter Name="CriticalThreshold" Value="50" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="100" />
+                        <RuleParameter Name="CriticalThreshold" Value="50" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Page Faults/sec" />
+                <Counter Name="Pages/sec" />
+                <Counter Name="Pool Paged Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Pool Nonpaged bytes" RangeGroup="Memory Bytes" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Network Interface">
+              <Counters>
+                <Counter Name="Bytes Received/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Sent/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Output Queue Length">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="1.5" />
+                        <RuleParameter Name="CriticalThreshold" Value="2" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="1.5" />
+                        <RuleParameter Name="CriticalThreshold" Value="2" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Packets Received/sec" RangeGroup="Network Packets" />
+                <Counter Name="Packets Sent/sec" RangeGroup="Network Packets" />
+                <Counter Name="Current Bandwidth" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Total/sec" RangeGroup="Network Bytes">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="Network Interface" />
+                        <RuleParameter Name="DependentCounter" Value="Current Bandwidth" />
+                        <RuleParameter Name="DependentInstance" Value="" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.6" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.7" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="Network Interface" />
+                        <RuleParameter Name="DependentCounter" Value="Current Bandwidth" />
+                        <RuleParameter Name="DependentInstance" Value="" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.6" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.7" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="PhysicalDisk">
+              <Counters>
+                <Counter Name="% Disk Read Time" Range="100" />
+                <Counter Name="% Disk Time" Range="100" />
+                <Counter Name="% Disk Write Time" Range="100" />
+                <Counter Name="% Idle Time" Range="100" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="40" />
+                        <RuleParameter Name="CriticalThreshold" Value="20" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="40" />
+                        <RuleParameter Name="CriticalThreshold" Value="20" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Avg. Disk Bytes/Read" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Transfer" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Write" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Read Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Write Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Current Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk sec/Read" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Transfer" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Write" RangeGroup="Disk sec" />
+                <Counter Name="Disk Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Read Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Reads/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Transfers/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Write Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Writes/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Split IO/Sec" RangeGroup="Disk Transfers sec" />
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="Processor">
+              <Counters>
+                <Counter Name="% Processor Time" Range="100">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="75" />
+                        <RuleParameter Name="CriticalThreshold" Value="90" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="75" />
+                        <RuleParameter Name="CriticalThreshold" Value="90" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="% Privileged Time" Range="100" />
+                <Counter Name="% User Time" Range="100" />
+              </Counters>
+              <Instances>
+                <Instance Name="_Total" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="System">
+              <Counters>
+                <Counter Name="Context Switches/sec" />
+                <Counter Name="Processes" />
+                <Counter Name="Processor Queue Length" />
+                <Counter Name="Threads" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Process">
+              <Counters>
+                <Counter Name="% Processor Time" RangeGroup="Processor Time" />
+                <Counter Name="% Privileged Time" RangeGroup="Processor Time" />
+                <Counter Name="% User Time" RangeGroup="Processor Time" />
+                <Counter Name="Handle Count" />
+                <Counter Name="Thread Count" />
+                <Counter Name="Private Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Virtual Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Working Set" RangeGroup="Memory Bytes" />
+              </Counters>
+              <Instances>
+                <Instance Name="QTController" />
+                <Instance Name="QTController64" />
+              </Instances>
+            </CounterCategory>
+          </CounterCategories>
+          <DefaultCountersForAutomaticGraphs>
+            <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="_Total" GraphName="" />
+            <DefaultCounter CategoryName="Memory" CounterName="Available MBytes" InstanceName="" GraphName="" />
+          </DefaultCountersForAutomaticGraphs>
+        </CounterSet>
+        <CounterSet Name="Agent" CounterSetType="Agent" LocId="CounterSet_Agent">
+          <CounterCategories>
+            <CounterCategory Name="Memory">
+              <Counters>
+                <Counter Name="% Committed Bytes In Use" Range="100" />
+                <Counter Name="Available MBytes" RangeGroup="Memory Bytes" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="100" />
+                        <RuleParameter Name="CriticalThreshold" Value="50" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Page Faults/sec" />
+                <Counter Name="Pages/sec" />
+                <Counter Name="Pool Paged Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Pool Nonpaged bytes" RangeGroup="Memory Bytes" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Network Interface">
+              <Counters>
+                <Counter Name="Bytes Received/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Sent/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Output Queue Length">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="1.5" />
+                        <RuleParameter Name="CriticalThreshold" Value="2" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Packets Received/sec" RangeGroup="Network Packets" />
+                <Counter Name="Packets Sent/sec" RangeGroup="Network Packets" />
+                <Counter Name="Current Bandwidth" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Total/sec" RangeGroup="Network Bytes">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="Network Interface" />
+                        <RuleParameter Name="DependentCounter" Value="Current Bandwidth" />
+                        <RuleParameter Name="DependentInstance" Value="" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.6" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.7" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="PhysicalDisk">
+              <Counters>
+                <Counter Name="% Disk Read Time" Range="100" />
+                <Counter Name="% Disk Time" Range="100" />
+                <Counter Name="% Disk Write Time" Range="100" />
+                <Counter Name="% Idle Time" Range="100" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="40" />
+                        <RuleParameter Name="CriticalThreshold" Value="20" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Avg. Disk Bytes/Read" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Transfer" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Write" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Read Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Write Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Current Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk sec/Read" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Transfer" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Write" RangeGroup="Disk sec" />
+                <Counter Name="Disk Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Read Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Reads/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Transfers/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Write Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Writes/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Split IO/Sec" RangeGroup="Disk Transfers sec" />
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="Processor">
+              <Counters>
+                <Counter Name="% Processor Time" Range="100">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="75" />
+                        <RuleParameter Name="CriticalThreshold" Value="90" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="% Privileged Time" Range="100" />
+                <Counter Name="% User Time" Range="100" />
+              </Counters>
+              <Instances>
+                <Instance Name="0" />
+                <Instance Name="_Total" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="System">
+              <Counters>
+                <Counter Name="Context Switches/sec" />
+                <Counter Name="Processes" />
+                <Counter Name="Processor Queue Length" />
+                <Counter Name="Threads" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Process">
+              <Counters>
+                <Counter Name="% Processor Time" RangeGroup="Processor Time" />
+                <Counter Name="% Privileged Time" RangeGroup="Processor Time" />
+                <Counter Name="% User Time" RangeGroup="Processor Time" />
+                <Counter Name="Handle Count" />
+                <Counter Name="Thread Count" />
+                <Counter Name="Private Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Virtual Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Working Set" RangeGroup="Memory Bytes" />
+              </Counters>
+              <Instances>
+                <Instance Name="devenv" />
+                <Instance Name="QTAgentService" />
+                <Instance Name="QTAgent" />
+                <Instance Name="QTAgent32" />
+                <Instance Name="QTDCAgent" />
+                <Instance Name="QTDCAgent32" />
+                <Instance Name="QTAgent_35" />
+                <Instance Name="QTAgent_40" />
+                <Instance Name="QTAgent32_35" />
+                <Instance Name="QTAgent32_40" />
+              </Instances>
+            </CounterCategory>
+          </CounterCategories>
+          <DefaultCountersForAutomaticGraphs>
+            <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="0" GraphName="" RunType="Local" />
+            <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="_Total" GraphName="" RunType="Remote" />
+            <DefaultCounter CategoryName="Memory" CounterName="Available MBytes" InstanceName="" GraphName="" />
+          </DefaultCountersForAutomaticGraphs>
+        </CounterSet>
+      </CounterSets>
+      <RunConfigurations>
+        <RunConfiguration Name="Run Settings1" Description="Baseline scenario" ResultsStoreType="Database" TimingDetailsStorage="AllIndividualDetails" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="1500" WarmupTime="60" CoolDownTime="0" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="15" ValidationLevel="Low" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingFileCount="2" SqlTracingRolloverEnabled="true" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true" CoreCount="0" ResourcesRetentionTimeInMinutes="0" AgentDiagnosticsLevel="Warning">
+          <CounterSetMappings>
+            <CounterSetMapping ComputerName="[CONTROLLER MACHINE]">
+              <CounterSetReferences>
+                <CounterSetReference CounterSetName="LoadTest" />
+                <CounterSetReference CounterSetName="Controller" />
+              </CounterSetReferences>
+            </CounterSetMapping>
+            <CounterSetMapping ComputerName="[AGENT MACHINES]">
+              <CounterSetReferences>
+                <CounterSetReference CounterSetName="Agent" />
+              </CounterSetReferences>
+            </CounterSetMapping>
+          </CounterSetMappings>
+          <LoadGeneratorLocations>
+            <GeoLocation Location="Default" Percentage="100" />
+          </LoadGeneratorLocations>
+        </RunConfiguration>
+      </RunConfigurations>
+    </LoadTest>
+    <CodedWebTest name="autoGenerateGAMTokenCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="ce6b3c61-cc70-ed7d-0b45-05a97d4850d7">
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoGenerateGAMTokenCoded" />
+    </CodedWebTest>
+    <CodedWebTest name="GenerateGAMToken" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="6d2cda5c-08ee-74ab-223c-9f38c299be47">
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases" class="GenerateGAMToken" />
+    </CodedWebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="33532a4d-af2d-41f6-81dc-828c413d2fee" executionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <TestEntries>
+        <TestEntry isTransparent="false" testId="28ea770c-655b-ff8d-f584-9f833d4a3422" executionId="90b60a3b-4db1-42c6-8451-d81979f151f4" parentExecutionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="142c4e8b-aeb1-4ab1-a817-5beca8385c68" parentExecutionId="90b60a3b-4db1-42c6-8451-d81979f151f4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+        <TestEntry isTransparent="false" testId="ce6b3c61-cc70-ed7d-0b45-05a97d4850d7" executionId="999403f1-adcc-4f3e-a7fa-7b1d428f44ab" parentExecutionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+        <TestEntry isTransparent="false" testId="e14093ef-4937-e512-70bd-68f50974aaca" executionId="5d24c543-963c-4448-897d-2a9cca7a2ac3" parentExecutionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="68c1da53-c8e1-4709-97d6-1f9b24b6f824" parentExecutionId="5d24c543-963c-4448-897d-2a9cca7a2ac3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+        <TestEntry isTransparent="false" testId="7774eab4-164d-dbbc-8426-e04571af5f0e" executionId="8917e92d-7054-4571-81b3-35caf90440b3" parentExecutionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="98b162b8-8e61-4243-8b00-f74309784c50" parentExecutionId="8917e92d-7054-4571-81b3-35caf90440b3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+        <TestEntry isTransparent="false" testId="66b05ec3-46c9-91e1-8e51-d5315f470828" executionId="a32fa94a-02dc-4f06-b09a-9e21d3b0cdeb" parentExecutionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="9048f530-7a7a-4e23-ac66-0b897420422f" parentExecutionId="a32fa94a-02dc-4f06-b09a-9e21d3b0cdeb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+      </TestEntries>
+    </TestEntry>
+  </TestEntries>
+  <Results>
+    <LoadTestResult executionId="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" testId="33532a4d-af2d-41f6-81dc-828c413d2fee" testName="Baseline" computerName="HOMEPC" startTime="2017-10-01T20:43:57.1603139-05:00" endTime="2017-10-01T20:43:57.2335739-05:00" testType="fa4c85ff-1236-4463-b954-3ba2f0eabd95" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cdd5be0b-1c45-4508-afc9-4911f8d49bb7" runId="1005" controllerStartTime="2017-10-01T20:43:57.1603139-05:00" runStatus="Stopped" resultsStoreType="Database" resultsRepositoryConnectString="LAs4ogoKlDd+VpAl2ugknpVnps2Q+yFLesmD6LbUL+Km/JX8cBHGI53gZ4BH8pTCcqKm6fIrGHKGBGJ3QBDSWVtG/R9gmVK41LpMFWa4ySQbzsbWeWhsOim1CQqNS57+" loadTestDuration="1500" loadTestWarmupTime="60" previouslyViewed="false">
+      <Output>
+        <ErrorInfo>
+          <Message>Could not run load test 'Baseline' on agent 'HOMEPC': Network emulation is required for load test 'Baseline' but agent HOMEPC does not have the required administrative privileges.</Message>
+        </ErrorInfo>
+      </Output>
+    </LoadTestResult>
+  </Results>
+</TestRun>

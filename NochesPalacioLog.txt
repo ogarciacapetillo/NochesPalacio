@@ -1,12 +1,1 @@
-Hello World
-Total number of loaded records: 18
-Hello World
-Hello World
-Total number of loaded records: 18
-Hello World
-Hello World
-Total number of loaded records: 19
-Hello World
-Hello World
-Hello World
-Hello World
+10/2/2017 12:43:20 AM ASSERT CLASS: Web Test Name - GenerateGAMToken - ERROR: Internal Server Error Page

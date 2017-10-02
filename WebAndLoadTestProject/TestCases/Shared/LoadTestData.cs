@@ -1,4 +1,6 @@
-﻿using LoggerFramework;
+﻿//using LoggerFramework;
+//using LoggerFramework.Shared;
+using LoggerFramework;
 using LoggerFramework.Shared;
 using Microsoft.VisualStudio.TestTools.WebTesting;
 using PerformanceLibrary.Data;
@@ -39,8 +41,7 @@ namespace WebAndLoadTestProject.TestCases.Shared
         public static void LoadDataFromExcel()
         {
             try
-            {
-                LogHelper.Log(LogTarget.File, "Hello World");
+            {                
                 CleanUpStructures();
                 loadDataFromExcel = new ExcelReader("TestData.xlsx");                
                 int noRecords = FillingUpStructures();

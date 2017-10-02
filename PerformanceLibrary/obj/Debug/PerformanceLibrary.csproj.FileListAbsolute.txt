@@ -21,6 +21,7 @@ C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLib
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.pdb
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\LoggerFramework.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\Microsoft.VisualStudio.TestTools.UITest.ExtensionUtilities.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\Newtonsoft.Json.dll
@@ -28,11 +29,12 @@ C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\NPOI.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\NPOI.OOXML.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\NPOI.OpenXml4Net.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\LoggerFramework.pdb
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\Newtonsoft.Json.xml
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\NPOI.xml
+C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csprojResolveAssemblyReference.cache
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.Resources.Properties.resources
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csproj.GenerateResource.Cache
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csproj.CoreCompileInputs.cache
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.dll
 C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.pdb
-C:\Development\palacio\NochesPalacio\PerformanceLibrary\obj\Debug\PerformanceLibrary.csprojResolveAssemblyReference.cache

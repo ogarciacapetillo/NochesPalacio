@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.WebTesting;
+﻿using LoggerFramework;
+using LoggerFramework.Shared;
+using Microsoft.VisualStudio.TestTools.WebTesting;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -37,20 +39,12 @@ namespace PerformanceLibrary.ValidationRules
                 // Response could be HTML code for an Internal Server Error
                 if (e.Response.BodyString.Contains("Error"))
                 {
-                    //e.IsValid = validated;
-                    //e.WebTest.Outcome = Outcome.Fail;                    
+                    e.IsValid = validated;
+                    e.WebTest.Outcome = Outcome.Fail;          
+                    LogHelper.Log(LogTarget.File, DateTime.Now.ToString() + " ASSERT CLASS: Web Test Name - " + e.WebTest.Name + " - ERROR: Internal Server Error Page");
                     return;
                 }
-                //foreach(HtmlTag tag in e.Response.HtmlDocument.GetFilteredHtmlTags("title"))
-                //{
-                //    if (tag.Attributes is null) { return; }
-                //    if (tag.GetAttributeValue("Value").Equals("Error"))
-                //    {
-                //        e.IsValid = validated;
-                //        e.Message = (e.Response.HtmlDocument.GetFilteredHtmlTags("body")).ElementAt(0).ToString();
-                //        return;
-                //    }                   
-                //}
+                
                 // Get the response string, and parse into json
                 string json = e.Response.BodyString;                
                 var jsonExtract = new JsonRegex(json);
@@ -62,6 +56,9 @@ namespace PerformanceLibrary.ValidationRules
                         e.IsValid = false;
                         e.Message = "Message -> success: false found";
                         e.WebTest.Outcome = Outcome.Fail;
+                        
+                        LogHelper.Log(LogTarget.File, DateTime.Now.ToString()+" - ASSERT CLASS: Web Test Name - "+e.WebTest.Name
+                            +" - Web Test Outcome - "+e.WebTest.Outcome +" - VALIDATION RULE:  JSON Message attribute 'Success': FALSE");
                         break;
                     }
                 }

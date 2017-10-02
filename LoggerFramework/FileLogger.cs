@@ -1,5 +1,4 @@
 ﻿using LoggerFramework.Shared;
-using PerformanceLibrary.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +10,7 @@ namespace LoggerFramework
 {
     public class FileLogger : LogBase
     {
-        public string filePath = Base.GetExecPath()+@"NochesPalacioLog.txt";
+        public string filePath = GetExecPath()+@"NochesPalacioLog.txt";
 
         public override void Log(string message)
 
@@ -26,6 +25,22 @@ namespace LoggerFramework
                 }
             }
 
+        }
+
+        private static string GetExecPath()
+        {
+            string projectPath = "";
+            try
+            {
+                string sPath = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
+                string actualPath = sPath.Substring(0, sPath.LastIndexOf("TestResults"));
+                projectPath = new Uri(actualPath).LocalPath;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return projectPath;
         }
     }
 }

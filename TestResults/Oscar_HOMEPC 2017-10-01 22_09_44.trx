@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="c681c1ab-2ec5-4913-bf7d-182f6c4c6e0d" name="Oscar@HOMEPC 2017-10-01 22:09:44" runUser="HOMEPC\Oscar" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bec49d4d-fc80-4f98-94f0-afd3c8c3eb7a">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Oscar_HOMEPC 2017-10-01 22_09_44">
+      <DeploymentItem filename="C:\Development\palacio\NochesPalacio\LoggerFramework\bin\Debug\LoggerFramework.dll" />
+      <DeploymentItem filename="C:\Development\palacio\NochesPalacio\PerformanceLibrary\bin\Debug\PerformanceLibrary.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 9.0" MaxConnections="6">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+    <Properties>
+      <Property name="TestSettingsUIType" value="UnitTest" />
+    </Properties>
+  </TestSettings>
+  <Times creation="2017-10-01T22:09:44.9779889-05:00" queuing="2017-10-01T22:09:45.4407351-05:00" start="2017-10-01T22:09:45.5408213-05:00" finish="2017-10-02T00:16:38.8994744-05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <CodedWebTest name="autoLoginCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="e14093ef-4937-e512-70bd-68f50974aaca">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Login.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoLoginCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <CodedWebTest name="autoConsultarBalanceCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="28ea770c-655b-ff8d-f584-9f833d4a3422">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Saldos.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoConsultarBalanceCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <LoadTest Name="LoadTestIncremental" Description="" Owner="" storage="c:\development\palacio\nochespalacio\webandloadtestproject\testscenarios\loadtestincremental.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="6004fc61-87b2-44a7-ace3-673ce39daff1">
+      <Scenarios>
+        <Scenario Name="LoadTest" DelayBetweenIterations="15" PercentNewUsers="0" IPSwitching="false" TestMixType="PercentageOfTestsStarted" ApplyDistributionToPacingDelay="true" MaxTestIterations="0" DisableDuringWarmup="false" DelayStartTime="300" AllowedAgents="">
+          <ThinkProfile Value="0.2" Pattern="NormalDistribution" />
+          <LoadProfile Pattern="Step" InitialUsers="10" MaxUsers="1000" StepUsers="2" StepDuration="45" StepRampTime="0" />
+          <TestMix>
+            <TestProfile Name="autoConsultarBalanceCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="28ea770c-655b-ff8d-f584-9f833d4a3422" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoGenerateGAMTokenCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="ce6b3c61-cc70-ed7d-0b45-05a97d4850d7" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoLoginCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="e14093ef-4937-e512-70bd-68f50974aaca" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoMovimientosTarjetaCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="7774eab4-164d-dbbc-8426-e04571af5f0e" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+            <TestProfile Name="autoPagoTarjetaCoded" Path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" Id="66b05ec3-46c9-91e1-8e51-d5315f470828" Percentage="20" Type="Microsoft.VisualStudio.TestTools.WebStress.CodedWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+          </TestMix>
+          <BrowserMix>
+            <BrowserProfile Percentage="100">
+              <Browser Name="Smartphone" MaxConnections="2">
+                <Headers>
+                  <Header Name="User-Agent" Value="Mozilla/2.0 (compatible; MSIE 3.02; Windows CE; Smartphone; JavaScript; *)" />
+                  <Header Name="Accept" Value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, */*" />
+                  <Header Name="Accept-Language" Value="{{$IEAcceptLanguage}}" />
+                </Headers>
+              </Browser>
+            </BrowserProfile>
+          </BrowserMix>
+          <NetworkMix>
+            <NetworkProfile Percentage="100">
+              <Network Name="3G" BandwidthInKbps="NaN" NetworkProfileConfigurationXml="&lt;Emulation xmlns=&quot;http://microsoft.com/schemas/VisualStudio/TeamTest/2010&quot;&gt;&lt;VirtualChannel name=&quot;ThreeG-Channel1&quot;&gt;&lt;FilterList /&gt;&lt;VirtualLink instances=&quot;1&quot; name=&quot;link1&quot;&gt;&lt;LinkRule dir=&quot;upstream&quot;&gt;&lt;Bandwidth&gt;&lt;Speed unit=&quot;kbps&quot;&gt;512&lt;/Speed&gt;&lt;QueueManagement&gt;&lt;NormalQueue&gt;&lt;Size&gt;100&lt;/Size&gt;&lt;QueueMode&gt;packet&lt;/QueueMode&gt;&lt;DropType&gt;DropTail&lt;/DropType&gt;&lt;/NormalQueue&gt;&lt;/QueueManagement&gt;&lt;/Bandwidth&gt;&lt;Latency&gt;&lt;Fixed&gt;&lt;Time unit=&quot;msec&quot;&gt;150&lt;/Time&gt;&lt;/Fixed&gt;&lt;/Latency&gt;&lt;Loss&gt;&lt;Random&gt;&lt;Rate&gt;0.0025&lt;/Rate&gt;&lt;/Random&gt;&lt;/Loss&gt;&lt;/LinkRule&gt;&lt;LinkRule dir=&quot;downstream&quot;&gt;&lt;Bandwidth&gt;&lt;Speed unit=&quot;kbps&quot;&gt;64&lt;/Speed&gt;&lt;QueueManagement&gt;&lt;NormalQueue&gt;&lt;Size&gt;100&lt;/Size&gt;&lt;QueueMode&gt;packet&lt;/QueueMode&gt;&lt;DropType&gt;DropTail&lt;/DropType&gt;&lt;/NormalQueue&gt;&lt;/QueueManagement&gt;&lt;/Bandwidth&gt;&lt;Latency&gt;&lt;Fixed&gt;&lt;Time unit=&quot;msec&quot;&gt;150&lt;/Time&gt;&lt;/Fixed&gt;&lt;/Latency&gt;&lt;Loss&gt;&lt;Random&gt;&lt;Rate&gt;0.0025&lt;/Rate&gt;&lt;/Random&gt;&lt;/Loss&gt;&lt;/LinkRule&gt;&lt;/VirtualLink&gt;&lt;/VirtualChannel&gt;&lt;/Emulation&gt;" />
+            </NetworkProfile>
+          </NetworkMix>
+        </Scenario>
+      </Scenarios>
+      <CounterSets>
+        <CounterSet Name="HOMEPC" CounterSetType="LoadTest" LocId="">
+          <CounterCategories>
+            <CounterCategory Name="LoadTest:Scenario">
+              <Counters>
+                <Counter Name="User Load" HigherIsBetter="true" />
+                <Counter Name="Tests Running" HigherIsBetter="true" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Test">
+              <Counters>
+                <Counter Name="Total Tests" HigherIsBetter="true" />
+                <Counter Name="Passed Tests" HigherIsBetter="true" />
+                <Counter Name="Failed Tests" />
+                <Counter Name="Tests/Sec" HigherIsBetter="true" />
+                <Counter Name="Passed Tests/Sec" HigherIsBetter="true" />
+                <Counter Name="Failed Tests/Sec" />
+                <Counter Name="Avg. Requests/Test" HigherIsBetter="true" />
+                <Counter Name="Avg. Test Time" />
+                <Counter Name="% Time in LoadTestPlugin" />
+                <Counter Name="% Time in WebTest code" />
+                <Counter Name="% Time in Rules" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Transaction">
+              <Counters>
+                <Counter Name="Total Transactions" HigherIsBetter="true" />
+                <Counter Name="Avg. Transaction Time" />
+                <Counter Name="Avg. Response Time" />
+                <Counter Name="Transactions/Sec" HigherIsBetter="true" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Errors">
+              <Counters>
+                <Counter Name="Http Errors" />
+                <Counter Name="Validation Rule Errors" />
+                <Counter Name="Extraction Rule Errors" />
+                <Counter Name="Requests Timed Out" />
+                <Counter Name="Exceptions" />
+                <Counter Name="Total Errors" />
+                <Counter Name="Errors/Sec" />
+                <Counter Name="Threshold Violations/Sec" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Page">
+              <Counters>
+                <Counter Name="Total Pages" HigherIsBetter="true" />
+                <Counter Name="Avg. Page Time" />
+                <Counter Name="Page Response Time Goal" HigherIsBetter="true" />
+                <Counter Name="% Pages Meeting Goal" HigherIsBetter="true" />
+                <Counter Name="Pages/Sec" HigherIsBetter="true" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:Request">
+              <Counters>
+                <Counter Name="Total Requests" HigherIsBetter="true" />
+                <Counter Name="Passed Requests" HigherIsBetter="true" />
+                <Counter Name="Failed Requests" />
+                <Counter Name="Cached Requests" HigherIsBetter="true" />
+                <Counter Name="Requests/Sec" HigherIsBetter="true" />
+                <Counter Name="Passed Requests/Sec" HigherIsBetter="true" />
+                <Counter Name="Failed Requests/Sec" />
+                <Counter Name="Avg. First Byte Time" />
+                <Counter Name="Avg. Response Time" />
+                <Counter Name="Avg. Connection Wait Time">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="LoadTest:Page" />
+                        <RuleParameter Name="DependentCounter" Value="Avg. Page Time" />
+                        <RuleParameter Name="DependentInstance" Value="_Total" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.25" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.5" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Avg. Content Length" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="LoadTest:LogEntries">
+              <Counters>
+                <Counter Name="Total Log Entries" />
+                <Counter Name="Log Entries/Sec" />
+              </Counters>
+            </CounterCategory>
+          </CounterCategories>
+        </CounterSet>
+        <CounterSet Name="Controller" CounterSetType="Controller" LocId="CounterSet_Controller">
+          <CounterCategories>
+            <CounterCategory Name="Memory">
+              <Counters>
+                <Counter Name="% Committed Bytes In Use" Range="100" />
+                <Counter Name="Available MBytes" RangeGroup="Memory Bytes" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="100" />
+                        <RuleParameter Name="CriticalThreshold" Value="50" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="100" />
+                        <RuleParameter Name="CriticalThreshold" Value="50" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Page Faults/sec" />
+                <Counter Name="Pages/sec" />
+                <Counter Name="Pool Paged Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Pool Nonpaged bytes" RangeGroup="Memory Bytes" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Network Interface">
+              <Counters>
+                <Counter Name="Bytes Received/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Sent/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Output Queue Length">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="1.5" />
+                        <RuleParameter Name="CriticalThreshold" Value="2" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="1.5" />
+                        <RuleParameter Name="CriticalThreshold" Value="2" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Packets Received/sec" RangeGroup="Network Packets" />
+                <Counter Name="Packets Sent/sec" RangeGroup="Network Packets" />
+                <Counter Name="Current Bandwidth" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Total/sec" RangeGroup="Network Bytes">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="Network Interface" />
+                        <RuleParameter Name="DependentCounter" Value="Current Bandwidth" />
+                        <RuleParameter Name="DependentInstance" Value="" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.6" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.7" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="Network Interface" />
+                        <RuleParameter Name="DependentCounter" Value="Current Bandwidth" />
+                        <RuleParameter Name="DependentInstance" Value="" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.6" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.7" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="PhysicalDisk">
+              <Counters>
+                <Counter Name="% Disk Read Time" Range="100" />
+                <Counter Name="% Disk Time" Range="100" />
+                <Counter Name="% Disk Write Time" Range="100" />
+                <Counter Name="% Idle Time" Range="100" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="40" />
+                        <RuleParameter Name="CriticalThreshold" Value="20" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="40" />
+                        <RuleParameter Name="CriticalThreshold" Value="20" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Avg. Disk Bytes/Read" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Transfer" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Write" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Read Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Write Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Current Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk sec/Read" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Transfer" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Write" RangeGroup="Disk sec" />
+                <Counter Name="Disk Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Read Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Reads/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Transfers/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Write Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Writes/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Split IO/Sec" RangeGroup="Disk Transfers sec" />
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="Processor">
+              <Counters>
+                <Counter Name="% Processor Time" Range="100">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="75" />
+                        <RuleParameter Name="CriticalThreshold" Value="90" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="75" />
+                        <RuleParameter Name="CriticalThreshold" Value="90" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="% Privileged Time" Range="100" />
+                <Counter Name="% User Time" Range="100" />
+              </Counters>
+              <Instances>
+                <Instance Name="_Total" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="System">
+              <Counters>
+                <Counter Name="Context Switches/sec" />
+                <Counter Name="Processes" />
+                <Counter Name="Processor Queue Length" />
+                <Counter Name="Threads" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Process">
+              <Counters>
+                <Counter Name="% Processor Time" RangeGroup="Processor Time" />
+                <Counter Name="% Privileged Time" RangeGroup="Processor Time" />
+                <Counter Name="% User Time" RangeGroup="Processor Time" />
+                <Counter Name="Handle Count" />
+                <Counter Name="Thread Count" />
+                <Counter Name="Private Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Virtual Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Working Set" RangeGroup="Memory Bytes" />
+              </Counters>
+              <Instances>
+                <Instance Name="QTController" />
+                <Instance Name="QTController64" />
+              </Instances>
+            </CounterCategory>
+          </CounterCategories>
+          <DefaultCountersForAutomaticGraphs>
+            <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="_Total" GraphName="" />
+            <DefaultCounter CategoryName="Memory" CounterName="Available MBytes" InstanceName="" GraphName="" />
+          </DefaultCountersForAutomaticGraphs>
+        </CounterSet>
+        <CounterSet Name="Agent" CounterSetType="Agent" LocId="CounterSet_Agent">
+          <CounterCategories>
+            <CounterCategory Name="Memory">
+              <Counters>
+                <Counter Name="% Committed Bytes In Use" Range="100" />
+                <Counter Name="Available MBytes" RangeGroup="Memory Bytes" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="100" />
+                        <RuleParameter Name="CriticalThreshold" Value="50" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Page Faults/sec" />
+                <Counter Name="Pages/sec" />
+                <Counter Name="Pool Paged Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Pool Nonpaged bytes" RangeGroup="Memory Bytes" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Network Interface">
+              <Counters>
+                <Counter Name="Bytes Received/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Sent/sec" RangeGroup="Network Bytes" />
+                <Counter Name="Output Queue Length">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="1.5" />
+                        <RuleParameter Name="CriticalThreshold" Value="2" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Packets Received/sec" RangeGroup="Network Packets" />
+                <Counter Name="Packets Sent/sec" RangeGroup="Network Packets" />
+                <Counter Name="Current Bandwidth" RangeGroup="Network Bytes" />
+                <Counter Name="Bytes Total/sec" RangeGroup="Network Bytes">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                      <RuleParameters>
+                        <RuleParameter Name="DependentCategory" Value="Network Interface" />
+                        <RuleParameter Name="DependentCounter" Value="Current Bandwidth" />
+                        <RuleParameter Name="DependentInstance" Value="" />
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="0.6" />
+                        <RuleParameter Name="CriticalThreshold" Value="0.7" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="PhysicalDisk">
+              <Counters>
+                <Counter Name="% Disk Read Time" Range="100" />
+                <Counter Name="% Disk Time" Range="100" />
+                <Counter Name="% Disk Write Time" Range="100" />
+                <Counter Name="% Idle Time" Range="100" HigherIsBetter="true">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="False" />
+                        <RuleParameter Name="WarningThreshold" Value="40" />
+                        <RuleParameter Name="CriticalThreshold" Value="20" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="Avg. Disk Bytes/Read" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Transfer" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Bytes/Write" RangeGroup="DiskBytesRate" />
+                <Counter Name="Avg. Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Read Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk Write Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Current Disk Queue Length" RangeGroup="Disk Queue Length" />
+                <Counter Name="Avg. Disk sec/Read" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Transfer" RangeGroup="Disk sec" />
+                <Counter Name="Avg. Disk sec/Write" RangeGroup="Disk sec" />
+                <Counter Name="Disk Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Read Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Reads/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Transfers/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Disk Write Bytes/sec" RangeGroup="Disk Bytes sec" />
+                <Counter Name="Disk Writes/sec" RangeGroup="Disk Transfers sec" />
+                <Counter Name="Split IO/Sec" RangeGroup="Disk Transfers sec" />
+              </Counters>
+              <Instances>
+                <Instance Name="*" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="Processor">
+              <Counters>
+                <Counter Name="% Processor Time" Range="100">
+                  <ThresholdRules>
+                    <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                      <RuleParameters>
+                        <RuleParameter Name="AlertIfOver" Value="True" />
+                        <RuleParameter Name="WarningThreshold" Value="75" />
+                        <RuleParameter Name="CriticalThreshold" Value="90" />
+                      </RuleParameters>
+                    </ThresholdRule>
+                  </ThresholdRules>
+                </Counter>
+                <Counter Name="% Privileged Time" Range="100" />
+                <Counter Name="% User Time" Range="100" />
+              </Counters>
+              <Instances>
+                <Instance Name="0" />
+                <Instance Name="_Total" />
+              </Instances>
+            </CounterCategory>
+            <CounterCategory Name="System">
+              <Counters>
+                <Counter Name="Context Switches/sec" />
+                <Counter Name="Processes" />
+                <Counter Name="Processor Queue Length" />
+                <Counter Name="Threads" />
+              </Counters>
+            </CounterCategory>
+            <CounterCategory Name="Process">
+              <Counters>
+                <Counter Name="% Processor Time" RangeGroup="Processor Time" />
+                <Counter Name="% Privileged Time" RangeGroup="Processor Time" />
+                <Counter Name="% User Time" RangeGroup="Processor Time" />
+                <Counter Name="Handle Count" />
+                <Counter Name="Thread Count" />
+                <Counter Name="Private Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Virtual Bytes" RangeGroup="Memory Bytes" />
+                <Counter Name="Working Set" RangeGroup="Memory Bytes" />
+              </Counters>
+              <Instances>
+                <Instance Name="devenv" />
+                <Instance Name="QTAgentService" />
+                <Instance Name="QTAgent" />
+                <Instance Name="QTAgent32" />
+                <Instance Name="QTDCAgent" />
+                <Instance Name="QTDCAgent32" />
+                <Instance Name="QTAgent_35" />
+                <Instance Name="QTAgent_40" />
+                <Instance Name="QTAgent32_35" />
+                <Instance Name="QTAgent32_40" />
+              </Instances>
+            </CounterCategory>
+          </CounterCategories>
+          <DefaultCountersForAutomaticGraphs>
+            <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="0" GraphName="" RunType="Local" />
+            <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="_Total" GraphName="" RunType="Remote" />
+            <DefaultCounter CategoryName="Memory" CounterName="Available MBytes" InstanceName="" GraphName="" />
+          </DefaultCountersForAutomaticGraphs>
+        </CounterSet>
+      </CounterSets>
+      <RunConfigurations>
+        <RunConfiguration Name="Run Settings1" Description="Baseline scenario" ResultsStoreType="Database" TimingDetailsStorage="AllIndividualDetails" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="12900" WarmupTime="300" CoolDownTime="600" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="15" ValidationLevel="Low" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingFileCount="2" SqlTracingRolloverEnabled="true" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true" CoreCount="0" ResourcesRetentionTimeInMinutes="0" AgentDiagnosticsLevel="Warning">
+          <CounterSetMappings>
+            <CounterSetMapping ComputerName="[CONTROLLER MACHINE]">
+              <CounterSetReferences>
+                <CounterSetReference CounterSetName="LoadTest" />
+                <CounterSetReference CounterSetName="Controller" />
+              </CounterSetReferences>
+            </CounterSetMapping>
+            <CounterSetMapping ComputerName="[AGENT MACHINES]">
+              <CounterSetReferences>
+                <CounterSetReference CounterSetName="Agent" />
+              </CounterSetReferences>
+            </CounterSetMapping>
+          </CounterSetMappings>
+          <LoadGeneratorLocations>
+            <GeoLocation Location="Default" Percentage="100" />
+          </LoadGeneratorLocations>
+        </RunConfiguration>
+      </RunConfigurations>
+    </LoadTest>
+    <CodedWebTest name="autoMovimientosTarjetaCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="7774eab4-164d-dbbc-8426-e04571af5f0e">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Movimientos.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoMovimientosTarjetaCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+    <CodedWebTest name="autoGenerateGAMTokenCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="ce6b3c61-cc70-ed7d-0b45-05a97d4850d7">
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoGenerateGAMTokenCoded" />
+    </CodedWebTest>
+    <CodedWebTest name="GenerateGAMToken" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="6d2cda5c-08ee-74ab-223c-9f38c299be47">
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases" class="GenerateGAMToken" />
+    </CodedWebTest>
+    <CodedWebTest name="autoPagoTarjetaCoded" storage="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="66b05ec3-46c9-91e1-8e51-d5315f470828">
+      <DeploymentItems>
+        <DeploymentItem filename="webandloadtestproject\Resources\Pagos.csv" />
+      </DeploymentItems>
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject.TestCases.Coded" class="autoPagoTarjetaCoded" />
+      <IncludedWebTests>
+        <IncludedWebTest name="GenerateGAMToken" path="c:\development\palacio\nochespalacio\webandloadtestproject\bin\debug\webandloadtestproject.dll" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" isCodedWebTest="true" />
+      </IncludedWebTests>
+    </CodedWebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="6004fc61-87b2-44a7-ace3-673ce39daff1" executionId="e6e2589c-7304-4778-a814-33307598fbcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <TestEntries>
+        <TestEntry isTransparent="false" testId="28ea770c-655b-ff8d-f584-9f833d4a3422" executionId="e1e82c28-1dbc-4f5a-88ba-6efa4e4d09fc" parentExecutionId="e6e2589c-7304-4778-a814-33307598fbcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="9b694825-f370-4df4-95e1-2ee7de8eb91f" parentExecutionId="e1e82c28-1dbc-4f5a-88ba-6efa4e4d09fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+        <TestEntry isTransparent="false" testId="ce6b3c61-cc70-ed7d-0b45-05a97d4850d7" executionId="b164bcb1-1cac-40ce-a6e4-733539aa9120" parentExecutionId="e6e2589c-7304-4778-a814-33307598fbcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+        <TestEntry isTransparent="false" testId="e14093ef-4937-e512-70bd-68f50974aaca" executionId="288be78b-872d-442c-bda1-0333a248476c" parentExecutionId="e6e2589c-7304-4778-a814-33307598fbcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="7939df11-204b-452f-97e1-6f589fe3aca6" parentExecutionId="288be78b-872d-442c-bda1-0333a248476c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+        <TestEntry isTransparent="false" testId="7774eab4-164d-dbbc-8426-e04571af5f0e" executionId="56a4af80-71ce-493c-84a2-c95a231bf648" parentExecutionId="e6e2589c-7304-4778-a814-33307598fbcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="60763f48-7035-4b4a-9f60-c7433d241912" parentExecutionId="56a4af80-71ce-493c-84a2-c95a231bf648" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+        <TestEntry isTransparent="false" testId="66b05ec3-46c9-91e1-8e51-d5315f470828" executionId="45bfa776-65cd-40e3-9e82-33933241b273" parentExecutionId="e6e2589c-7304-4778-a814-33307598fbcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+          <TestEntries>
+            <TestEntry isTransparent="false" testId="6d2cda5c-08ee-74ab-223c-9f38c299be47" executionId="222e7ed0-29cb-437a-8049-551effc89674" parentExecutionId="45bfa776-65cd-40e3-9e82-33933241b273" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+          </TestEntries>
+        </TestEntry>
+      </TestEntries>
+    </TestEntry>
+  </TestEntries>
+  <Results>
+    <LoadTestResult executionId="e6e2589c-7304-4778-a814-33307598fbcc" testId="6004fc61-87b2-44a7-ace3-673ce39daff1" testName="LoadTestIncremental" computerName="HOMEPC" duration="02:06:49.7667813" startTime="2017-10-01T22:09:47.1008924-05:00" endTime="2017-10-02T00:16:36.8676737-05:00" testType="fa4c85ff-1236-4463-b954-3ba2f0eabd95" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6e2589c-7304-4778-a814-33307598fbcc" runId="1008" controllerStartTime="2017-10-01T22:09:47.1008924-05:00" runStatus="Stopped" resultsStoreType="Database" resultsRepositoryConnectString="LAs4ogoKlDd+VpAl2ugknpVnps2Q+yFLesmD6LbUL+Km/JX8cBHGI53gZ4BH8pTCcqKm6fIrGHKGBGJ3QBDSWVtG/R9gmVK41LpMFWa4ySQbzsbWeWhsOim1CQqNS57+" loadTestDuration="12900" loadTestWarmupTime="300" previouslyViewed="true">
+      <AnalyzerViewState>
+        <LoadTestRunDescriptor isLegendPanelVisible="true" isOverviewPanelVisible="true" isCounterPanelVisible="true" scrollingGraph="false" minMaxGraph="false" showHorizontalGridOnGraph="true" showThresholdsOnGraph="true" showComparison="false" showZoom="true" lockZoom="true" activeConsoleView="Graph" selectedGraphPanel1="Key Indicators" selectedGraphPanel2="Page Response Time" selectedGraphPanel3="System under Test" selectedGraphPanel4="Controller and Agents" graphPanelLayout="FourGrid" tablePanelLayout="TwoHorizontal" selectedTablePanel1="Tests" selectedTablePanel2="Errors" selectedTablePanel3="Thresholds" selectedTablePanel4="Transactions" controllerName="HOMEPC" isLocalRun="true" testRunId="c681c1ab-2ec5-4913-bf7d-182f6c4c6e0d" repositoryRunId="0">
+          <GraphDescriptors>
+            <GraphDescriptor graphName="Key Indicators">
+              <HorizontalZoomRange lower="-1" upper="-1" />
+              <VerticalZoomRange lower="0" upper="100" />
+              <PlotDescriptors>
+                <PlotDescriptor colorArgb="-65536" lineStyle="0" fixedRange="0" rangeGroup="User Load" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Scenario" counterName="User Load" instanceName="_Total" baseInstanceName="_Total" loadTestItemId="-1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744448" lineStyle="0" fixedRange="0" rangeGroup="Pages/Sec" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Pages/Sec" instanceName="_Total" baseInstanceName="_Total" loadTestItemId="-1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16776961" lineStyle="0" fixedRange="0" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="_Total" baseInstanceName="_Total" loadTestItemId="-1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-8388480" lineStyle="0" fixedRange="0" rangeGroup="Errors/Sec" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Errors" counterName="Errors/Sec" instanceName="_Total" baseInstanceName="_Total" loadTestItemId="-1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-23296" lineStyle="0" fixedRange="0" rangeGroup="Threshold Violations/Sec" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Errors" counterName="Threshold Violations/Sec" instanceName="_Total" baseInstanceName="_Total" loadTestItemId="-1" />
+                </PlotDescriptor>
+              </PlotDescriptors>
+            </GraphDescriptor>
+            <GraphDescriptor graphName="System under Test">
+              <HorizontalZoomRange lower="-1" upper="-1" />
+              <VerticalZoomRange lower="0" upper="100" />
+            </GraphDescriptor>
+            <GraphDescriptor graphName="Controller and Agents">
+              <HorizontalZoomRange lower="-1" upper="-1" />
+              <VerticalZoomRange lower="0" upper="100" />
+              <PlotDescriptors>
+                <PlotDescriptor colorArgb="-65536" lineStyle="0" fixedRange="100" rangeGroup="% Processor Time" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="Processor" counterName="% Processor Time" instanceName="0" baseInstanceName="0" loadTestItemId="-1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744448" lineStyle="0" fixedRange="0" rangeGroup="Memory Bytes" showOnGraph="true" isSelected="false">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="Memory" counterName="Available MBytes" instanceName="systemdiagnosticsperfcounterlibsingleinstance" baseInstanceName="systemdiagnosticsperfcounterlibsingleinstance" loadTestItemId="-1" />
+                </PlotDescriptor>
+              </PlotDescriptors>
+            </GraphDescriptor>
+            <GraphDescriptor graphName="Test Response Time">
+              <HorizontalZoomRange lower="-1" upper="-1" />
+              <VerticalZoomRange lower="0" upper="561" />
+              <PlotDescriptors>
+                <PlotDescriptor colorArgb="-65536" lineStyle="0" fixedRange="561" rangeGroup="Avg. Test Time" showOnGraph="true" isSelected="false" counterMetadata="autoLoginCoded;LoadTest">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Avg. Test Time" instanceName="autoLoginCoded(002)" baseInstanceName="autoLoginCoded" loadTestItemId="2" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744448" lineStyle="0" fixedRange="561" rangeGroup="Avg. Test Time" showOnGraph="true" isSelected="false" counterMetadata="autoGenerateGAMTokenCoded;LoadTest">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Avg. Test Time" instanceName="autoGenerateGAMTokenCoded(001)" baseInstanceName="autoGenerateGAMTokenCoded" loadTestItemId="1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16776961" lineStyle="0" fixedRange="561" rangeGroup="Avg. Test Time" showOnGraph="true" isSelected="false" counterMetadata="autoPagoTarjetaCoded;LoadTest">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Avg. Test Time" instanceName="autoPagoTarjetaCoded(004)" baseInstanceName="autoPagoTarjetaCoded" loadTestItemId="4" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-8388480" lineStyle="0" fixedRange="561" rangeGroup="Avg. Test Time" showOnGraph="true" isSelected="false" counterMetadata="autoMovimientosTarjetaCoded;LoadTest">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Avg. Test Time" instanceName="autoMovimientosTarjetaCoded(003)" baseInstanceName="autoMovimientosTarjetaCoded" loadTestItemId="3" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-23296" lineStyle="0" fixedRange="561" rangeGroup="Avg. Test Time" showOnGraph="true" isSelected="false" counterMetadata="autoConsultarBalanceCoded;LoadTest">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Avg. Test Time" instanceName="autoConsultarBalanceCoded(000)" baseInstanceName="autoConsultarBalanceCoded" loadTestItemId="0" />
+                </PlotDescriptor>
+              </PlotDescriptors>
+            </GraphDescriptor>
+            <GraphDescriptor graphName="Transaction Response Time">
+              <HorizontalZoomRange lower="-1" upper="-1" />
+              <VerticalZoomRange lower="0" upper="560" />
+              <PlotDescriptors>
+                <PlotDescriptor colorArgb="-65536" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoLoginCoded;LoadTest;GenerateGAMToken.PH_NP_GenerateGAM">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="GenerateGAMToken.PH_NP_GenerateGAM(000)" baseInstanceName="GenerateGAMToken.PH_NP_GenerateGAM" loadTestItemId="0" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744448" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoLoginCoded;LoadTest;autoLoginCoded.GenerateGAMToken">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="autoLoginCoded.GenerateGAMToken(001)" baseInstanceName="autoLoginCoded.GenerateGAMToken" loadTestItemId="1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16776961" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoLoginCoded;LoadTest;PH_NP_Login">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="PH_NP_Login(002)" baseInstanceName="PH_NP_Login" loadTestItemId="2" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-8388480" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoGenerateGAMTokenCoded;LoadTest;PH_NP_GenerateGAM">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="PH_NP_GenerateGAM(003)" baseInstanceName="PH_NP_GenerateGAM" loadTestItemId="3" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-23296" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoPagoTarjetaCoded;LoadTest;GenerateGAMToken.PH_NP_GenerateGAM">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="GenerateGAMToken.PH_NP_GenerateGAM(004)" baseInstanceName="GenerateGAMToken.PH_NP_GenerateGAM" loadTestItemId="4" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744320" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoPagoTarjetaCoded;LoadTest;autoPagoTarjetaCoded.GenerateGAMToken">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="autoPagoTarjetaCoded.GenerateGAMToken(005)" baseInstanceName="autoPagoTarjetaCoded.GenerateGAMToken" loadTestItemId="5" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-7667712" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoPagoTarjetaCoded;LoadTest;PH_NP_PagpTarjeta">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="PH_NP_PagpTarjeta(006)" baseInstanceName="PH_NP_PagpTarjeta" loadTestItemId="6" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16751616" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoMovimientosTarjetaCoded;LoadTest;GenerateGAMToken.PH_NP_GenerateGAM">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="GenerateGAMToken.PH_NP_GenerateGAM(007)" baseInstanceName="GenerateGAMToken.PH_NP_GenerateGAM" loadTestItemId="7" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16777077" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoMovimientosTarjetaCoded;LoadTest;autoMovimientosTarjetaCoded.GenerateGAMToken">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="autoMovimientosTarjetaCoded.GenerateGAMToken(008)" baseInstanceName="autoMovimientosTarjetaCoded.GenerateGAMToken" loadTestItemId="8" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16741493" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoMovimientosTarjetaCoded;LoadTest;PH_NP_MovimientosTarjeta">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="PH_NP_MovimientosTarjeta(009)" baseInstanceName="PH_NP_MovimientosTarjeta" loadTestItemId="9" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-5383962" lineStyle="0" fixedRange="560" rangeGroup="Avg. Response Time" showOnGraph="true" isSelected="false" counterMetadata="autoConsultarBalanceCoded;LoadTest;PH_NP_ConsultarBalance">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Transaction" counterName="Avg. Response Time" instanceName="PH_NP_ConsultarBalance(010)" baseInstanceName="PH_NP_ConsultarBalance" loadTestItemId="10" />
+                </PlotDescriptor>
+              </PlotDescriptors>
+            </GraphDescriptor>
+            <GraphDescriptor graphName="Page Response Time">
+              <HorizontalZoomRange lower="-1" upper="-1" />
+              <VerticalZoomRange lower="0" upper="560" />
+              <PlotDescriptors>
+                <PlotDescriptor colorArgb="-65536" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoLoginCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/RestApi/GetGAMToken----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="GetGAMToken{POST}(000)" baseInstanceName="GetGAMToken{POST}" loadTestItemId="0" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744448" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoLoginCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/Login----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="Login{POST}(001)" baseInstanceName="Login{POST}" loadTestItemId="1" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16776961" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoGenerateGAMTokenCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/RestApi/GetGAMToken----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="GetGAMToken{POST}(002)" baseInstanceName="GetGAMToken{POST}" loadTestItemId="2" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-8388480" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoPagoTarjetaCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/RestApi/GetGAMToken----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="GetGAMToken{POST}(003)" baseInstanceName="GetGAMToken{POST}" loadTestItemId="3" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-23296" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoPagoTarjetaCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/PagoTarjetaPalacio----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="PagoTarjetaPalacio{POST}(004)" baseInstanceName="PagoTarjetaPalacio{POST}" loadTestItemId="4" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16744320" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoMovimientosTarjetaCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/RestApi/GetGAMToken----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="GetGAMToken{POST}(005)" baseInstanceName="GetGAMToken{POST}" loadTestItemId="5" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-7667712" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="false" counterMetadata="autoMovimientosTarjetaCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/getMovimientosTarjetaPalacio----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="getMovimientosTarjetaPalacio{POST}(006)" baseInstanceName="getMovimientosTarjetaPalacio{POST}" loadTestItemId="6" />
+                </PlotDescriptor>
+                <PlotDescriptor colorArgb="-16751616" lineStyle="0" fixedRange="560" rangeGroup="Avg. Page Time" showOnGraph="true" isSelected="true" counterMetadata="autoConsultarBalanceCoded;LoadTest;https://app.elpalaciodehierro.com:9443/phApp/rest/ConsultarBalance----{POST}">
+                  <CounterDescriptor machineName="HOMEPC" categoryName="LoadTest:Page" counterName="Avg. Page Time" instanceName="ConsultarBalance{POST}(007)" baseInstanceName="ConsultarBalance{POST}" loadTestItemId="7" />
+                </PlotDescriptor>
+              </PlotDescriptors>
+            </GraphDescriptor>
+          </GraphDescriptors>
+        </LoadTestRunDescriptor>
+      </AnalyzerViewState>
+      <Summary>
+        <PerformanceCounterResults>
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="true" machineName="HOMEPC" categoryName="LoadTest:Scenario" counterName="User Load" instanceName="_Total" value="334" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="true" machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Total Tests" instanceName="_Total" value="4219" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="false" machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Failed Tests" instanceName="_Total" value="1868" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="true" machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Tests/Sec" instanceName="_Total" value="0.577173" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="false" machineName="HOMEPC" categoryName="LoadTest:Test" counterName="Avg. Test Time" instanceName="_Total" value="22.4993515" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="true" machineName="HOMEPC" categoryName="LoadTest:Request" counterName="Total Requests" instanceName="_Total" value="4226" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="false" machineName="HOMEPC" categoryName="LoadTest:Request" counterName="Failed Requests" instanceName="_Total" value="417" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="true" machineName="HOMEPC" categoryName="LoadTest:Request" counterName="Cached Requests" instanceName="_Total" value="0" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="true" machineName="HOMEPC" categoryName="LoadTest:Request" counterName="Requests/Sec" instanceName="_Total" value="0.5781306" />
+          <PerformanceCounterResult isOverallResultCounter="true" higherIsBetter="false" machineName="HOMEPC" categoryName="LoadTest:Request" counterName="Avg. Response Time" instanceName="_Total" value="22.4140968" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Processor" counterName="% Processor Time" instanceName="_Total" value="80.4366455" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="true" machineName="HOMEPC" categoryName="Memory" counterName="Available MBytes" instanceName="-" value="3579" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Network Interface" counterName="Bytes Received/sec" instanceName="intel[r] ethernet connection i219-lm" value="0" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Network Interface" counterName="Bytes Received/sec" instanceName="teredo tunneling pseudo-interface" value="0.04161492" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Network Interface" counterName="Bytes Received/sec" instanceName="intel[r] dual band wireless-ac 8260" value="855.6747" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Network Interface" counterName="Bytes Sent/sec" instanceName="intel[r] ethernet connection i219-lm" value="0" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Network Interface" counterName="Bytes Sent/sec" instanceName="teredo tunneling pseudo-interface" value="0.5407202" />
+          <PerformanceCounterResult isOverallResultCounter="false" higherIsBetter="false" machineName="HOMEPC" categoryName="Network Interface" counterName="Bytes Sent/sec" instanceName="intel[r] dual band wireless-ac 8260" value="724.00354" />
+        </PerformanceCounterResults>
+        <PageSummaries>
+          <PageSummary scenarioName="LoadTest" testName="autoLoginCoded" url="GetGAMToken{POST}" pageCount="3" responseTime="2652" />
+          <PageSummary scenarioName="LoadTest" testName="autoLoginCoded" url="Login{POST}" pageCount="809" responseTime="1541" />
+          <PageSummary scenarioName="LoadTest" testName="autoGenerateGAMTokenCoded" url="GetGAMToken{POST}" pageCount="849" responseTime="28497" />
+          <PageSummary scenarioName="LoadTest" testName="autoPagoTarjetaCoded" url="GetGAMToken{POST}" pageCount="2" responseTime="2657" />
+          <PageSummary scenarioName="LoadTest" testName="autoPagoTarjetaCoded" url="PagoTarjetaPalacio{POST}" pageCount="842" responseTime="2064" />
+          <PageSummary scenarioName="LoadTest" testName="autoMovimientosTarjetaCoded" url="GetGAMToken{POST}" pageCount="2" responseTime="2794" />
+          <PageSummary scenarioName="LoadTest" testName="autoMovimientosTarjetaCoded" url="getMovimientosTarjetaPalacio{POST}" pageCount="829" responseTime="51253" />
+          <PageSummary scenarioName="LoadTest" testName="autoConsultarBalanceCoded" url="ConsultarBalance{POST}" pageCount="890" responseTime="28129" />
+        </PageSummaries>
+        <TestSummaries>
+          <TestSummary scenarioName="LoadTest" testName="autoLoginCoded" totalTests="809" testsFailed="809" averageDuration="1607" />
+          <TestSummary scenarioName="LoadTest" testName="autoGenerateGAMTokenCoded" totalTests="849" testsFailed="72" averageDuration="28536" />
+          <TestSummary scenarioName="LoadTest" testName="autoPagoTarjetaCoded" totalTests="842" testsFailed="842" averageDuration="2119" />
+          <TestSummary scenarioName="LoadTest" testName="autoMovimientosTarjetaCoded" totalTests="829" testsFailed="65" averageDuration="51305" />
+          <TestSummary scenarioName="LoadTest" testName="autoConsultarBalanceCoded" totalTests="890" testsFailed="80" averageDuration="28179" />
+        </TestSummaries>
+        <TransactionSummaries>
+          <TransactionSummary scenarioName="LoadTest" testName="autoLoginCoded" transactionName="GenerateGAMToken.PH_NP_GenerateGAM" transactionCount="3" elapsedTime="5449" responseTime="2652" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoLoginCoded" transactionName="autoLoginCoded.GenerateGAMToken" transactionCount="3" elapsedTime="5449" responseTime="2652" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoLoginCoded" transactionName="PH_NP_Login" transactionCount="809" elapsedTime="1541" responseTime="1541" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoGenerateGAMTokenCoded" transactionName="PH_NP_GenerateGAM" transactionCount="847" elapsedTime="28552" responseTime="28552" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoPagoTarjetaCoded" transactionName="GenerateGAMToken.PH_NP_GenerateGAM" transactionCount="2" elapsedTime="4945" responseTime="2657" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoPagoTarjetaCoded" transactionName="autoPagoTarjetaCoded.GenerateGAMToken" transactionCount="2" elapsedTime="4945" responseTime="2657" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoPagoTarjetaCoded" transactionName="PH_NP_PagpTarjeta" transactionCount="841" elapsedTime="2058" responseTime="2058" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoMovimientosTarjetaCoded" transactionName="GenerateGAMToken.PH_NP_GenerateGAM" transactionCount="2" elapsedTime="5298" responseTime="2794" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoMovimientosTarjetaCoded" transactionName="autoMovimientosTarjetaCoded.GenerateGAMToken" transactionCount="2" elapsedTime="5298" responseTime="2794" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoMovimientosTarjetaCoded" transactionName="PH_NP_MovimientosTarjeta" transactionCount="829" elapsedTime="51253" responseTime="51253" />
+          <TransactionSummary scenarioName="LoadTest" testName="autoConsultarBalanceCoded" transactionName="PH_NP_ConsultarBalance" transactionCount="889" elapsedTime="28153" responseTime="28153" />
+        </TransactionSummaries>
+      </Summary>
+    </LoadTestResult>
+  </Results>
+</TestRun>

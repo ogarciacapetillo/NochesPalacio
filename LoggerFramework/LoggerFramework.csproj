@@ -48,11 +48,5 @@
     <Compile Include="Shared\LogBase.cs" />
     <Compile Include="Shared\LogHelper.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PerformanceLibrary\PerformanceLibrary.csproj">
-      <Project>{c686dfe5-81b3-41b5-afc9-fb36109ed553}</Project>
-      <Name>PerformanceLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

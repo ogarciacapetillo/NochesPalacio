@@ -87,7 +87,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LoggerFramework\LoggerFramework.csproj">
+      <Project>{ce6b5168-6e51-48a3-bf1c-f1839e743610}</Project>
+      <Name>LoggerFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Properties.resx" />
   </ItemGroup>

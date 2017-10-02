@@ -59,7 +59,6 @@ namespace WebAndLoadTestProject.TestCases.Coded
                 validationRule2.Tolerance = 0D;
                 this.ValidateResponseOnPageComplete += new EventHandler<ValidationEventArgs>(validationRule2.Validate);
             }
-
             if ((this.Context.ValidationLevel >= Microsoft.VisualStudio.TestTools.WebTesting.ValidationLevel.Low))
             {
                 HTTPResponseCode validateResponseCode = new HTTPResponseCode();
@@ -91,7 +90,7 @@ namespace WebAndLoadTestProject.TestCases.Coded
                 this.Context["Pagos.Pagos#csv.cardHolder"].ToString());
 
             #region WebTest
-
+            
             this.BeginTransaction("PH_NP_PagpTarjeta");
             WebTestRequest webRequest = new WebTestRequest(this.Context["NetEnvironment"].ToString() + "/phApp/rest/PagoTarjetaPalacio");
             webRequest.ExpectedHttpStatusCode = 200;
